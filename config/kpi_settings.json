@@ -1,0 +1,5 @@
+{
+  "_comment": "Ranking thresholds. Tournament rankings include only players with at least min_minutes_ranking in the position; the others are kept with ranking_status = low_data. Live rankings need min_minutes_live minutes in the match.",
+  "min_minutes_ranking": 180,
+  "min_minutes_live": 20
+}

@@ -1,0 +1,10 @@
+[
+  {"id": 1, "start": 0.0, "end": 8.0, "text": "Scout's Eye. Explainable U19 match intelligence, built on Microsoft Foundry."},
+  {"id": 2, "start": 8.0, "end": 20.0, "text": "A U19 title decider. Northbridge need a draw, Vallora need a win. Second minute: goal. A fact card appears instantly, then the agents' verified commentary replaces it."},
+  {"id": 3, "start": 20.0, "end": 34.0, "text": "Same moment, two audiences. Fans get the story. Analysts get field tilt, PPDA and momentum, from the same verified facts, in English or Hungarian."},
+  {"id": 4, "start": 34.0, "end": 50.0, "text": "Click any overlay to see why it exists: the source events, the data, and the rule behind every claim. If the text says dominating, the numbers have to prove it."},
+  {"id": 5, "start": 50.0, "end": 68.0, "text": "Five agents work together in a Microsoft Agent Framework workflow. The Match Analyst decides what matters, Narrators write each version, and a Verifier checks every number, name and claim. Here the pre-check caught an unsupported claim and sent the text back for one repair."},
+  {"id": 6, "start": 68.0, "end": 82.0, "text": "Player focus: a fifteen-year-old full-back, still on the bench at thirty minutes, and the note says so. Low data, so no ranking claim. The model never knew who the planted talents were."},
+  {"id": 7, "start": 82.0, "end": 98.0, "text": "Forty-ninth minute: a Vallora penalty wins the title. The fact card comes first, then the verified text. The recap tells the story, and its numbers are checked against the match facts."},
+  {"id": 8, "start": 98.0, "end": 112.0, "text": "Synthetic data, checked against published U19 benchmarks. Five agents, one rule: never show a number you cannot prove. Scout's Eye. Try the live demo, link below."}
+]

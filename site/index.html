@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scout's Eye – Explainable U19 Match Intelligence</title>
+<meta name="description" content="Scout's Eye: explainable, multi-agent match intelligence for a fully synthetic U19 tournament. Every number is traceable to events; every narrative is verified.">
+<link rel="stylesheet" href="styles.css?v=20261027125625">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2311998e'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fff'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="logo" aria-hidden="true"></span>
+    <div>
+      <h1>Scout's Eye</h1>
+      <p class="tagline" data-i18n="tagline">Explainable U19 Match Intelligence · multi-agent narration, every number traceable</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Screens">
+    <button role="tab" data-tab="match" aria-selected="true" data-i18n="tab_match">Match</button>
+    <button role="tab" data-tab="agents" data-i18n="tab_agents">Agent trace</button>
+    <button role="tab" data-tab="players" data-i18n="tab_players">Player profile</button>
+    <button role="tab" data-tab="scouting" data-i18n="tab_scouting">Scouting</button>
+    <button role="tab" data-tab="recap" data-i18n="tab_recap">Recap</button>
+    <button role="tab" data-tab="about" data-i18n="tab_about">About</button>
+  </nav>
+  <div class="seg lang-top" data-key="lang" role="group" aria-label="Language"><button data-v="hu">HU</button><button data-v="en" class="on">EN</button></div>
+  <button id="helpBtn" class="help" aria-label="Help" title="Help / Súgó">?</button>
+  <button id="demoBtn" class="demo" title="Play the 90-second demo script"><span data-i18n="demo_btn">▶ Demo script</span></button>
+</header>
+
+<div id="banner" class="banner" aria-live="polite"></div>
+
+<main>
+<!-- ===================== MATCH ===================== -->
+<section id="tab-match" class="tab active" role="tabpanel">
+  <div class="match-grid">
+    <div class="pitch-col">
+      <div class="scoreboard" id="scoreboard"></div>
+      <svg id="pitch" viewBox="0 0 105 68" role="img" aria-label="2D pitch with the current event"></svg>
+      <div class="controls">
+        <button id="playBtn" aria-label="Play or pause (space)">▶</button>
+        <div class="speed" role="group" aria-label="Playback speed">
+          <button data-speed="1">1×</button><button data-speed="10" class="on">10×</button><button data-speed="60">60×</button>
+        </div>
+        <input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek match clock">
+        <span id="clock" class="clock">0'</span>
+      </div>
+      <div id="timeline" class="timeline" aria-label="Timeline with goal and moment markers"></div>
+      <div id="eventLine" class="eventline"></div>
+      <div class="legend"><span class="sw home"></span><span id="legendHome"></span> <span class="sw away"></span><span id="legendAway"></span> · <span data-i18n="legend_pitch">ball path = last on-ball actions · ● current event</span></div>
+    </div>
+    <div class="overlay-col">
+      <div class="modebar" role="group" aria-label="Overlay mode">
+        <div class="seg" data-key="persona"><button data-v="fan" class="on" data-i18n="fan">Fan</button><button data-v="analyst" data-i18n="analyst">Analyst</button><button data-v="compare" data-i18n="compare">Fan + Analyst</button></div>
+        <div class="seg" data-key="club"><button data-v="neutral" class="on" data-i18n="neutral">Neutral</button><button data-v="T1">Northbridge</button><button data-v="T2">Vallora</button></div>
+        <label class="focus"><span data-i18n="focus">Player focus</span> <select id="focusSel"><option value="" data-i18n="none">— none —</option></select></label>
+      </div>
+      <div class="legend star-legend">★ <span data-i18n="star_legend"></span></div>
+      <div id="overlayStage" class="stage" aria-live="polite"></div>
+      <h3><span data-i18n="feed">Overlay feed</span> <small id="feedCount"></small></h3>
+      <div id="feed" class="feed"></div>
+    </div>
+  </div>
+  <div class="panels">
+    <section class="panel" id="evidencePanel"><h3 data-i18n="evidence">Evidence</h3><div class="muted" data-i18n="evidence_hint">Click an overlay to see its source events, data fields, claim rules and the Verifier result.</div></section>
+    <section class="panel" id="tracePanelMini"><h3 data-i18n="trace_sel">Agent trace (selected overlay)</h3><div class="muted" data-i18n="trace_hint">Fact card → Analyst → Narrator fan-out → pre-check → Verifier → repair → final. Open the Agent trace tab for the full view.</div></section>
+  </div>
+</section>
+
+<!-- ===================== AGENTS ===================== -->
+<section id="tab-agents" class="tab" role="tabpanel">
+  <div class="two-col">
+    <div>
+      <h2 data-i18n="trace_title">Agent trace for the selected overlay</h2>
+      <div id="traceFull" class="trace"></div>
+    </div>
+    <div>
+      <h2 data-i18n="agg_title">Aggregate: how the agents worked together</h2>
+      <div id="traceAgg"></div>
+      <h3 data-i18n="roles_title">Roles and shared state</h3>
+      <div id="roleDiagram" class="diagram"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLAYERS ===================== -->
+<section id="tab-players" class="tab" role="tabpanel">
+  <div class="two-col">
+    <div>
+      <h2 data-i18n="profile_title">Player profile</h2>
+      <label><span data-i18n="player">Player</span> <select id="playerSel"></select></label>
+      <div class="legend star-legend">★ <span data-i18n="star_legend"></span></div>
+      <div id="playerCard" class="card"></div>
+    </div>
+    <div>
+      <h2 data-i18n="live_title">Live in this match (up to the current clock)</h2>
+      <div id="playerLive" class="card"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCOUTING ===================== -->
+<section id="tab-scouting" class="tab" role="tabpanel">
+  <h2 data-i18n="scouting_title">Scouting view</h2>
+  <div class="muted" data-i18n="scouting_hint">Rankings use ranked players only (≥ 180 minutes in the position). The four young players in focus are highlighted. Age is shown as information only.</div>
+  <div class="legend star-legend">★ <span data-i18n="star_legend"></span> · <span data-i18n="validation_legend"></span></div>
+  <div id="talents" class="talents"></div>
+  <div id="rankings" class="rankings"></div>
+  <div class="two-col">
+    <div><h3 data-i18n="notes_hu">Scouting notes (HU)</h3><div id="notesHu" class="md"></div></div>
+    <div><h3 data-i18n="notes_en">Scouting notes (EN)</h3><div id="notesEn" class="md"></div></div>
+  </div>
+</section>
+
+<!-- ===================== RECAP ===================== -->
+<section id="tab-recap" class="tab" role="tabpanel">
+  <div class="modebar"><div class="seg" data-key="recapPersona"><button data-v="fan" class="on" data-i18n="fan">Fan</button><button data-v="analyst" data-i18n="analyst">Analyst</button></div>
+  <div class="seg" data-key="recapLang"><button data-v="hu">HU</button><button data-v="en" class="on">EN</button></div></div>
+  <div id="recap" class="md card"></div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="tab-about" class="tab" role="tabpanel">
+  <h2 data-i18n="about_title">How it works</h2>
+  <div id="arch" class="diagram"></div>
+  <div class="two-col">
+    <div class="card" id="aboutData"></div>
+    <div class="card" id="aboutWhy"></div>
+  </div>
+</section>
+</main>
+
+<div id="demoOverlay" class="demo-overlay" hidden><div class="demo-box"><div id="demoStep"></div><button id="demoStop" data-i18n="demo_stop">Stop demo</button></div></div>
+
+<div id="helpModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+  <div class="modal-box">
+    <div class="modal-head"><h2 id="helpTitle"></h2><button id="helpClose" aria-label="Close">✕</button></div>
+    <div id="helpBody" class="md"></div>
+  </div>
+</div>
+<div id="guideModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+  <div class="modal-box small">
+    <div class="modal-head"><h2 id="guideTitle"></h2><button id="guideClose" aria-label="Close">✕</button></div>
+    <ol id="guideSteps"></ol>
+    <div class="modal-actions"><button id="guideDemo" class="demo"></button><button id="guideDismiss"></button></div>
+  </div>
+</div>
+<script src="app.js?v=20261027125625"></script>
+</body>
+</html>

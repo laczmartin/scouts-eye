@@ -1,0 +1,21 @@
+{
+  "text_variants": 168,
+  "mean_latency_s": 67.07,
+  "fact_card_latency_s": {
+    "mean": 0.022,
+    "max": 0.054,
+    "n": 62
+  },
+  "upgrade_latency_s": {
+    "mean": 67.33,
+    "median": 80.07,
+    "max": 169.1,
+    "n": 145
+  },
+  "llm_calls": 206,
+  "cached": 242,
+  "tokens": 536639,
+  "retries_429": 0,
+  "replay_speed": 60,
+  "scope": "whole match at 60x replay speed"
+}

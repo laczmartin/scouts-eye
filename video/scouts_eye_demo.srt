@@ -1,0 +1,41 @@
+1
+00:00:00,200 --> 00:00:06,720
+Scout's Eye. Explainable U19 match intelligence, built on Microsoft Foundry.
+
+2
+00:00:08,200 --> 00:00:19,800
+A U19 title decider. Northbridge need a draw, Vallora need a win. Second minute:
+goal. A fact card appears instantly, then the agents' verified commentary replaces it.
+
+3
+00:00:20,200 --> 00:00:32,070
+Same moment, two audiences. Fans get the story. Analysts get field tilt,
+PPDA and momentum, from the same verified facts, in English or Hungarian.
+
+4
+00:00:34,200 --> 00:00:45,260
+Click any overlay to see why it exists: the source events, the data, and the
+rule behind every claim. If the text says dominating, the numbers have to prove it.
+
+5
+00:00:50,200 --> 00:01:07,400
+Five agents work together in a Microsoft Agent Framework workflow. The Match Analyst
+decides what matters, Narrators write each version, and a Verifier checks every number,
+name and claim. Here the pre-check caught an unsupported claim and sent the text back for one repair.
+
+6
+00:01:08,200 --> 00:01:21,510
+Player focus: a fifteen-year-old full-back, still on the
+bench at thirty minutes, and the note says so. Low data, so
+no ranking claim. The model never knew who the planted talents were.
+
+7
+00:01:22,200 --> 00:01:35,660
+Forty-ninth minute: a Vallora penalty wins the title. The fact card comes first, then the
+verified text. The recap tells the story, and its numbers are checked against the match facts.
+
+8
+00:01:38,200 --> 00:01:51,200
+Synthetic data, checked against published U19 benchmarks. Five agents, one rule:
+never show a number you cannot prove. Scout's Eye. Try the live demo, link below.
+

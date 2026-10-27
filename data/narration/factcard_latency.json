@@ -1,0 +1,42 @@
+{
+  "what": "time from an event's arrival to its finished fact cards (live-mode code path, no LLM)",
+  "runs": 5,
+  "n": 155,
+  "mean_ms": 12.95,
+  "median_ms": 13.09,
+  "p95_ms": 31.9,
+  "max_ms": 35.09,
+  "per_run": [
+    {
+      "run": 1,
+      "n": 31,
+      "mean_ms": 12.93,
+      "max_ms": 33.75
+    },
+    {
+      "run": 2,
+      "n": 31,
+      "mean_ms": 12.92,
+      "max_ms": 33.08
+    },
+    {
+      "run": 3,
+      "n": 31,
+      "mean_ms": 12.89,
+      "max_ms": 35.09
+    },
+    {
+      "run": 4,
+      "n": 31,
+      "mean_ms": 12.92,
+      "max_ms": 33.19
+    },
+    {
+      "run": 5,
+      "n": 31,
+      "mean_ms": 13.09,
+      "max_ms": 33.71
+    }
+  ],
+  "machine": "author's laptop (macOS), Python 3.13.2"
+}

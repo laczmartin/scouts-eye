@@ -1,0 +1,913 @@
+{
+  "match": "M12",
+  "items": 61,
+  "text_variants": 174,
+  "overlays": 157,
+  "verifier": {
+    "items": 174,
+    "ok": 100,
+    "repaired": 57,
+    "reject": 17,
+    "precheck_failed": 84,
+    "claim_items": 95,
+    "claim_unsupported": 35,
+    "status": {
+      "verified": 145,
+      "recovered": 12,
+      "fallback": 17
+    }
+  },
+  "llm_calls": 443,
+  "cached_calls": 36,
+  "tokens": {
+    "input": 1292485,
+    "output": 126346,
+    "total": 1418831
+  },
+  "cost_usd": 0.7191,
+  "tokens_full_run": {
+    "input": 1448481,
+    "output": 145230,
+    "total": 1593711,
+    "note": "this run's calls plus the cached responses it reused = cost of one full uncached run"
+  },
+  "cost_usd_full_run": 0.8118,
+  "retries_429": 0,
+  "budget_usd": 1.2,
+  "failed_calls": 0,
+  "model": "gpt-4.1-mini",
+  "elapsed_s": 540.0,
+  "mean_item_latency_s": 409.99,
+  "overlays_by_mode": {
+    "analyst": 45,
+    "fan": 74,
+    "focus": 38
+  },
+  "overlays_by_persona": {
+    "analyst": 83,
+    "fan": 74
+  },
+  "items_by_mode": {
+    "fan": 13,
+    "analyst": 26,
+    "focus": 22
+  },
+  "failure_recovery": {
+    "status": {
+      "verified": 145,
+      "fallback": 17,
+      "recovered": 12
+    },
+    "recovery": {
+      "pre-check:rejected": 17,
+      "pre-check:stock_phrase_trimmed": 12,
+      "verifier:invalid_json": 1
+    },
+    "fact_card_fallbacks_shown": 17,
+    "fallbacks_without_fact_card": 0,
+    "timeout_s": 60
+  },
+  "reruns": [
+    {
+      "tag": "n1",
+      "reason": "night: rejected texts that pass after the false-positive fixes and the stock-phrase trimming",
+      "items": [
+        "M12-IT-003",
+        "M12-IT-007",
+        "M12-IT-009",
+        "M12-IT-011",
+        "M12-IT-034",
+        "M12-IT-038",
+        "M12-IT-059"
+      ],
+      "recaps": false,
+      "text_variants": 30,
+      "llm_calls": 8,
+      "cached_calls": 67,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 19968,
+        "output": 2233,
+        "total": 22201
+      },
+      "cost_usd": 0.0116,
+      "elapsed_s": 11.4
+    },
+    {
+      "tag": "n2",
+      "reason": "night hand review: items failing the new rules; the four recaps (new prompt)",
+      "items": [
+        "M12-IT-001",
+        "M12-IT-006",
+        "M12-IT-010",
+        "M12-IT-012",
+        "M12-IT-027",
+        "M12-IT-029",
+        "M12-IT-030",
+        "M12-IT-031",
+        "M12-IT-033",
+        "M12-IT-048",
+        "M12-IT-057",
+        "M12-IT-058"
+      ],
+      "recaps": true,
+      "text_variants": 40,
+      "llm_calls": 25,
+      "cached_calls": 88,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 93968,
+        "output": 11268,
+        "total": 105236
+      },
+      "cost_usd": 0.0556,
+      "elapsed_s": 73.0
+    },
+    {
+      "tag": "n3",
+      "reason": "night: fallbacks after n2 and two garbled control-index terms; repairs now see the previous text",
+      "items": [
+        "M12-IT-001",
+        "M12-IT-026",
+        "M12-IT-029",
+        "M12-IT-031",
+        "M12-IT-033",
+        "M12-IT-034",
+        "M12-IT-048",
+        "M12-IT-052",
+        "M12-IT-057"
+      ],
+      "recaps": false,
+      "text_variants": 22,
+      "llm_calls": 25,
+      "cached_calls": 41,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 66758,
+        "output": 6336,
+        "total": 73094
+      },
+      "cost_usd": 0.0368,
+      "elapsed_s": 25.1
+    },
+    {
+      "tag": "n4",
+      "reason": "checker fixes after n3: a negative decimal is one number, 'az ir\u00e1ny\u00edt\u00e1s \u00e9s a k\u00e1osz k\u00f6z\u00f6tt' is not a chaos claim, 'passes per possession' is English in a Hungarian text",
+      "items": [
+        "M12-IT-026",
+        "M12-IT-034"
+      ],
+      "recaps": false,
+      "text_variants": 4,
+      "llm_calls": 4,
+      "cached_calls": 10,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 10101,
+        "output": 1124,
+        "total": 11225
+      },
+      "cost_usd": 0.0058,
+      "elapsed_s": 10.6
+    },
+    {
+      "tag": "n5",
+      "reason": "checks from the night hand review: a possession or field-tilt share written for the wrong team, the control index as one team's advantage, 'powerful' for a slow header, 'number of passes' for passes per possession, four more garbled Hungarian terms",
+      "items": [
+        "M12-IT-002",
+        "M12-IT-003",
+        "M12-IT-007",
+        "M12-IT-010",
+        "M12-IT-011",
+        "M12-IT-012",
+        "M12-IT-021",
+        "M12-IT-023",
+        "M12-IT-024",
+        "M12-IT-026",
+        "M12-IT-029",
+        "M12-IT-033",
+        "M12-IT-038",
+        "M12-IT-047",
+        "M12-IT-051",
+        "M12-IT-056"
+      ],
+      "recaps": false,
+      "text_variants": 56,
+      "llm_calls": 50,
+      "cached_calls": 106,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 135413,
+        "output": 12621,
+        "total": 148034
+      },
+      "cost_usd": 0.0744,
+      "elapsed_s": 53.9
+    },
+    {
+      "tag": "n6",
+      "reason": "the regime switch is described for the whole match (no team in the facts); the control index 'favoring' a team across a comma; two false positives fixed (a share after both team names, 'from chaos' at a switch from chaos)",
+      "items": [
+        "M12-IT-014",
+        "M12-IT-023",
+        "M12-IT-024",
+        "M12-IT-026",
+        "M12-IT-041",
+        "M12-IT-051"
+      ],
+      "recaps": false,
+      "text_variants": 12,
+      "llm_calls": 12,
+      "cached_calls": 26,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 34915,
+        "output": 3293,
+        "total": 38208
+      },
+      "cost_usd": 0.0192,
+      "elapsed_s": 15.2
+    },
+    {
+      "tag": "n7",
+      "reason": "pressing intensity written as pressures per 5 minutes (it is per minute)",
+      "items": [
+        "M12-IT-010",
+        "M12-IT-016"
+      ],
+      "recaps": false,
+      "text_variants": 8,
+      "llm_calls": 3,
+      "cached_calls": 19,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 6869,
+        "output": 961,
+        "total": 7830
+      },
+      "cost_usd": 0.0043,
+      "elapsed_s": 13.3
+    },
+    {
+      "tag": "n8",
+      "reason": "recaps and scouting notes after the night hand review: goals carry their shot speed, duel comparisons, the position in each scouting section, no tackles, 'a hajr\u00e1ban' for the 49' winner",
+      "items": [],
+      "recaps": true,
+      "scouting": true,
+      "text_variants": 0,
+      "llm_calls": 6,
+      "cached_calls": 2,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 51174,
+        "output": 5968,
+        "total": 57142
+      },
+      "cost_usd": 0.03,
+      "elapsed_s": 53.7
+    },
+    {
+      "tag": "n9",
+      "reason": "recaps: the venue's spelling, 'az' before a vowel, English words and two garbled words in Hungarian, 'from outside the box' for a goal from 10.6 m; Hungarian documents shown with the decimal comma",
+      "items": [],
+      "recaps": true,
+      "scouting": false,
+      "text_variants": 0,
+      "llm_calls": 10,
+      "cached_calls": 0,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 96850,
+        "output": 9199,
+        "total": 106049
+      },
+      "cost_usd": 0.0535,
+      "elapsed_s": 81.3
+    },
+    {
+      "tag": "n10",
+      "reason": "recap check false positive fixed ('close-range header (xG 0.65)' is not 'xG close'); replayed from the cache",
+      "items": [],
+      "recaps": true,
+      "scouting": false,
+      "text_variants": 0,
+      "llm_calls": 0,
+      "cached_calls": 9,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 0,
+        "output": 0,
+        "total": 0
+      },
+      "cost_usd": 0.0,
+      "elapsed_s": 0.1
+    },
+    {
+      "tag": "n11",
+      "reason": "Hungarian fan recap: the title 'won in the closing stage' (the winner came at 49') and an invented competition name",
+      "items": [],
+      "recaps": true,
+      "scouting": false,
+      "text_variants": 0,
+      "llm_calls": 2,
+      "cached_calls": 7,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 19938,
+        "output": 1608,
+        "total": 21546
+      },
+      "cost_usd": 0.0105,
+      "elapsed_s": 16.5
+    },
+    {
+      "tag": "n12",
+      "reason": "recap check false positive fixed ('12 ponttal v\u00e9gzett az \u00e9len' is a points total, not a margin); replayed from the cache",
+      "items": [],
+      "recaps": true,
+      "scouting": false,
+      "text_variants": 0,
+      "llm_calls": 0,
+      "cached_calls": 8,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 0,
+        "output": 0,
+        "total": 0
+      },
+      "cost_usd": 0.0,
+      "elapsed_s": 0.1
+    },
+    {
+      "tag": "p1",
+      "reason": "27 Oct day: checker fixes n-q (who is on the pitch, control words need field tilt, metric wording); all Petrovic and Novak focus items (their facts now carry the pitch status)",
+      "items": [
+        "M12-IT-002",
+        "M12-IT-008",
+        "M12-IT-009",
+        "M12-IT-010",
+        "M12-IT-012",
+        "M12-IT-014",
+        "M12-IT-021",
+        "M12-IT-028",
+        "M12-IT-030",
+        "M12-IT-031",
+        "M12-IT-036",
+        "M12-IT-039",
+        "M12-IT-040",
+        "M12-IT-041",
+        "M12-IT-042",
+        "M12-IT-043",
+        "M12-IT-044",
+        "M12-IT-045",
+        "M12-IT-046",
+        "M12-IT-047",
+        "M12-IT-048",
+        "M12-IT-049",
+        "M12-IT-050",
+        "M12-IT-051",
+        "M12-IT-052"
+      ],
+      "recaps": false,
+      "scouting": false,
+      "text_variants": 70,
+      "llm_calls": 115,
+      "cached_calls": 89,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 372542,
+        "output": 33341,
+        "total": 405883
+      },
+      "cost_usd": 0.2024,
+      "elapsed_s": 158.3
+    },
+    {
+      "tag": "p2",
+      "reason": "27 Oct day: rejections of p1 caused by checker false positives (fix r); the four recaps and both scouting notes with the new wording checks",
+      "items": [
+        "M12-IT-008",
+        "M12-IT-009",
+        "M12-IT-028",
+        "M12-IT-044"
+      ],
+      "recaps": true,
+      "scouting": true,
+      "text_variants": 16,
+      "llm_calls": 15,
+      "cached_calls": 41,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 111344,
+        "output": 12692,
+        "total": 124036
+      },
+      "cost_usd": 0.0648,
+      "elapsed_s": 145.8
+    },
+    {
+      "tag": "p3",
+      "reason": "27 Oct day: the analyst HU recap of p2 fell back only because a standings row (goals 7-7) was read as a match score; checker fixed, recaps replayed from the cache",
+      "items": [],
+      "recaps": true,
+      "scouting": false,
+      "text_variants": 0,
+      "llm_calls": 0,
+      "cached_calls": 6,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 0,
+        "output": 0,
+        "total": 0
+      },
+      "cost_usd": 0.0,
+      "elapsed_s": 0.1
+    },
+    {
+      "tag": "p4",
+      "reason": "27 Oct day: the 15 shown variants failing the checker fixes s (hand review after p1-p3), single variants only; the recaps (one article error in the analyst HU recap)",
+      "items": [],
+      "variants": [
+        "M12-IT-002|en|T2|",
+        "M12-IT-006|hu|neutral|",
+        "M12-IT-007|hu|T1|",
+        "M12-IT-010|en|neutral|",
+        "M12-IT-013|hu|neutral|",
+        "M12-IT-018|hu|neutral|",
+        "M12-IT-026|en|neutral|",
+        "M12-IT-030|hu|neutral|",
+        "M12-IT-031|en|neutral|",
+        "M12-IT-041|hu|neutral|T1P09",
+        "M12-IT-047|en|neutral|T2P12",
+        "M12-IT-047|hu|neutral|T2P12",
+        "M12-IT-049|en|neutral|T2P12",
+        "M12-IT-049|hu|neutral|T2P12",
+        "M12-IT-060|en|neutral|T4P11"
+      ],
+      "recaps": true,
+      "scouting": false,
+      "text_variants": 15,
+      "llm_calls": 15,
+      "cached_calls": 8,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 101487,
+        "output": 9979,
+        "total": 111466
+      },
+      "cost_usd": 0.0566,
+      "elapsed_s": 100.2
+    },
+    {
+      "tag": "p5",
+      "reason": "27 Oct day: the 11 single variants of p4 that failed before any call (a one-branch workflow is not allowed; fixed: a spare branch)",
+      "items": [],
+      "variants": [
+        "M12-IT-002|en|T2|",
+        "M12-IT-006|hu|neutral|",
+        "M12-IT-007|hu|T1|",
+        "M12-IT-010|en|neutral|",
+        "M12-IT-013|hu|neutral|",
+        "M12-IT-018|hu|neutral|",
+        "M12-IT-026|en|neutral|",
+        "M12-IT-030|hu|neutral|",
+        "M12-IT-031|en|neutral|",
+        "M12-IT-041|hu|neutral|T1P09",
+        "M12-IT-060|en|neutral|T4P11"
+      ],
+      "recaps": false,
+      "scouting": false,
+      "text_variants": 11,
+      "llm_calls": 18,
+      "cached_calls": 24,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 51240,
+        "output": 4287,
+        "total": 55527
+      },
+      "cost_usd": 0.0274,
+      "elapsed_s": 24.1
+    },
+    {
+      "tag": "p6",
+      "reason": "27 Oct day: the English fan recap (shown in the demo and the video) repaired against the recap checks t ('Northbridge United', 'territorial control' at 55 % field tilt)",
+      "items": [],
+      "variants": [],
+      "recaps": false,
+      "scouting": false,
+      "repaired_recaps": [
+        "fan:en"
+      ],
+      "text_variants": 0,
+      "llm_calls": 2,
+      "cached_calls": 0,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 20151,
+        "output": 1405,
+        "total": 21556
+      },
+      "cost_usd": 0.0103,
+      "elapsed_s": 12.7
+    },
+    {
+      "tag": "p6b",
+      "reason": "27 Oct day: p6 again after a checker false positive ('Entering the match \u2026 by a point' is the gap before the match); both repair rounds replayed from the cache",
+      "items": [],
+      "variants": [],
+      "recaps": false,
+      "scouting": false,
+      "repaired_recaps": [
+        "fan:en"
+      ],
+      "text_variants": 0,
+      "llm_calls": 0,
+      "cached_calls": 2,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 0,
+        "output": 0,
+        "total": 0
+      },
+      "cost_usd": 0.0,
+      "elapsed_s": 0.0
+    },
+    {
+      "tag": "p7",
+      "reason": "27 Oct day: the Hungarian analyst recap repaired against the recap checks t ('\u00fajra vezet\u00e9shez juttatta' at 27', 'n\u00f6velte el\u0151ny\u00e9t' at 2-2, 'tornagy\u0151ztes g\u00f3l', English words, control words at 55 % field tilt)",
+      "items": [],
+      "variants": [],
+      "recaps": false,
+      "scouting": false,
+      "repaired_recaps": [
+        "analyst:hu"
+      ],
+      "text_variants": 0,
+      "llm_calls": 2,
+      "cached_calls": 0,
+      "failed_calls": 0,
+      "retries": 0,
+      "tokens": {
+        "input": 21720,
+        "output": 3036,
+        "total": 24756
+      },
+      "cost_usd": 0.0135,
+      "elapsed_s": 19.4
+    }
+  ],
+  "cost_usd_with_reruns": 1.3958,
+  "kept_texts": [
+    {
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "from_run": "p4",
+      "reason": "27 Oct day: the repair of p7 failed twice and its second text brought new errors (the 18' goal 'a 2-2 szoros meccsen', English words 'balanced', 'chaos', 'field tilt'); following the rule 'if a fix brings new errors, keep the old text and list its errors', the committed text of p4 is kept and its errors are listed in README.md (known errors)"
+    }
+  ],
+  "targeted_edits": [
+    {
+      "id": "e2",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "Vallora\u2019s win propelled them to 12 points and the top of the standings, relegating Northbridge",
+      "new": "Vallora rose with the win to 12 points and the top of the standings, pushing Northbridge",
+      "reason": "dangling modifier ('Entering the final matchday ..., Vallora\u2019s win' - the win did not enter the matchday) and 'relegating' (a football term for dropping a division)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e3",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "scoring a long-range right-foot strike",
+      "new": "scoring a right-foot strike",
+      "reason": "the 27' shot was taken inside the box near the byline (event at x 99, y 78.8; 19.6 m from the centre of the goal because of the tight angle): not long-range",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e4",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "The halftime drama continued",
+      "new": "The half-time drama continued",
+      "reason": "British spelling as in the rest of the text ('equalising', 'equaliser'): 'half-time'",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e5",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "but could not break down Vallora\u2019s resilient defense.",
+      "new": "but did not score after the break.",
+      "reason": "Northbridge scored twice (2', 45+3'); after the break they did not score",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e6",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "Vallora maintained a slightly higher pass accuracy",
+      "new": "Vallora maintained a higher pass accuracy",
+      "reason": "79.57 % vs 72.47 % is a gap of 7.1 points, not 'slightly'",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e7",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "underpinning their control at key moments",
+      "new": "underpinning their overall edge",
+      "reason": "control words need a 58 % field tilt (Vallora 55.3 % over the match); pass accuracy and duels are match totals, not figures 'at key moments'",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e8",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "The match settled into a balanced but intense regime with frequent momentum swings, particularly after the 49th-minute goal.",
+      "new": "The match was mostly in a balanced but intense regime, with several momentum swings.",
+      "reason": "after the 49' goal the regime was chaos from 56' to 70' (balanced 52'-55' and from 71'), so it did not 'settle'; Vallora's momentum changed sign 5 times (18', 39', 51', 78', 89'), not 'particularly after' 49'; most minutes were balanced",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e9",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "Vallora utilized effective progressive passing",
+      "new": "Vallora used effective progressive passing",
+      "reason": "British spelling elsewhere ('Equalising', 'equalised', 'equaliser'): 'utilized' mixes American spelling in",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e10",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "who made eight touches in the box to sustain",
+      "new": "who had made eight touches in the box by 41' to sustain",
+      "reason": "8 touches in the box is Andreou's count at 41' (player_threshold moment), not his match total (10)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e11",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "goal equalizes with a precise header",
+      "new": "goal equalises with a precise header",
+      "reason": "British spelling as in the rest of the text ('Equalising', 'equalised', and 'equaliser' in the same line)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e12",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "Vallora\u2019s territorial dominance fostered",
+      "new": "Vallora\u2019s territorial advantage fostered",
+      "reason": "control / dominance words need a 58 % field tilt (55.3 %); 'territorial advantage' needs more than 50 % (the text uses it in its last paragraph too)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e13",
+      "file": "data/narration/M12_recap_analyst_en.md",
+      "old": "overturning the pre-match leaderboard by demonstrating superior control in critical phases.",
+      "new": "overturning the pre-match leaderboard.",
+      "reason": "'superior control' at a 55.3 % field tilt is not backed by the facts",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e14",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "l\u0151tt a jobbl\u00e1bbal,",
+      "new": "l\u0151tt jobb l\u00e1bbal,",
+      "reason": "needless article; 'jobb l\u00e1bbal' is two words (like 'bal k\u00e9zzel')",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e15",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "jobbl\u00e1bas l\u00f6v\u00e9ssel visszavette a vezet\u00e9st Vallor\u00e1nak",
+      "new": "jobbl\u00e1bas l\u00f6v\u00e9ssel el\u0151nybe juttatta a Vallor\u00e1t",
+      "reason": "Vallora had not led before 27' (0-1, 1-1): the goal takes the lead, it does not take it back; 'el\u0151nybe juttatta' avoids repeating 'megszerezte a vezet\u00e9st' of the sentence before",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e16",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "jobb l\u00e1bas l\u00f6v\u00e9se veszi kezdet\u00e9t a rangad\u00f3",
+      "new": "jobbl\u00e1bas l\u00f6v\u00e9s\u00e9vel veszi kezdet\u00e9t a rangad\u00f3",
+      "reason": "ungrammatical (two subjects for 'veszi kezdet\u00e9t'); 'jobbl\u00e1bas' as the text writes it in its first paragraph (like 'balkezes')",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e17",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "kiegyenl\u00edt, els\u00f6pr\u0151 ter\u00fcleti f\u00f6l\u00e9nyben l\u00e9v\u0151 Vallora",
+      "new": "kiegyenl\u00edt, a ter\u00fcleti f\u00f6l\u00e9nyben l\u00e9v\u0151 Vallora",
+      "reason": "'els\u00f6pr\u0151' (overwhelming) overstates a 15-minute field tilt of 64.5 % at 18'; a proper name with a participle modifier takes the article ('a ... l\u00e9v\u0151 Vallora')",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e18",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "vissza\u00e1ll\u00edtja a Vallora vezet\u00e9st",
+      "new": "vissza\u00e1ll\u00edtja a Vallora vezet\u00e9s\u00e9t",
+      "reason": "missing possessive ending",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e19",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "Vallora United uralta kicsit a ter\u00fcleti f\u00f6l\u00e9nyt (55%)",
+      "new": "Vallora United enyhe ter\u00fcleti f\u00f6l\u00e9nyben j\u00e1tszott (55%)",
+      "reason": "control / dominance words ('uralta') need a 58 % field tilt; 55 % is a slight field tilt",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e20",
+      "file": "data/narration/M12_recap_fan_hu.md",
+      "old": "Vallora 2,35-sz\u00f6r\u00f6s v\u00e1rhat\u00f3 g\u00f3l\u00e9rt\u00e9kkel",
+      "new": "Vallora 2,35-\u00f6s v\u00e1rhat\u00f3 g\u00f3l\u00e9rt\u00e9kkel",
+      "reason": "2,35 is Vallora's xG itself, not a ratio (the ratio is 1,85)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e21",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "Ekkor m\u00e9g \u00e9szlelhet\u0151 volt a Northbridge enyhe t\u00e9rf\u00e9lf\u00f6l\u00e9nye",
+      "new": "Ekkor m\u00e9g \u00e9szlelhet\u0151 volt a Northbridge t\u00e9rf\u00e9lf\u00f6l\u00e9nye",
+      "reason": "before 3' all four on-ball events in the final third were Northbridge's (field tilt 100 %): not 'enyhe' (slight)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e22",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "l\u00f6v\u00e9ssel \u00fajra vezet\u00e9shez juttatta Vallor\u00e1t",
+      "new": "l\u00f6v\u00e9ssel vezet\u00e9shez juttatta Vallor\u00e1t",
+      "reason": "Vallora had not led before 27': not 'again'",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e23",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "mik\u00f6zben a t\u00e9rf\u00e9lf\u00f6l\u00e9ny \u00e9s a ter\u00fcleti f\u00f6l\u00e9ny is a csapatn\u00e1l volt.",
+      "new": "mik\u00f6zben a ter\u00fcleti f\u00f6l\u00e9ny is a csapatn\u00e1l volt.",
+      "reason": "'t\u00e9rf\u00e9lf\u00f6l\u00e9ny' and 'ter\u00fcleti f\u00f6l\u00e9ny' name the same measure (field tilt) twice; the claim holds (65.5 % in the 15 minutes before 27')",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e24",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "\u00edgy 2-2 volt az \u00e1ll\u00e1s. Ebben a szakaszban magas volt a j\u00e1t\u00e9k intenzit\u00e1sa \u00e9s a p\u00e1rharcok sz\u00e1ma is.",
+      "new": "\u00edgy 2-2 volt az \u00e1ll\u00e1s.",
+      "reason": "not backed: from 40' to half-time the duel rate (1.8 per minute) was below the match rate (2.1), and at the end of the half both teams' 5-minute pressing intensity (0.2 and 0.4) was the lowest of the match",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e25",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "b\u00fcntet\u0151b\u0151l szerzett g\u00f3llal n\u00f6velte el\u0151ny\u00e9t:",
+      "new": "b\u00fcntet\u0151b\u0151l szerzett g\u00f3llal ism\u00e9t vezet\u00e9shez jutott:",
+      "reason": "at 2-2 there was no lead to extend; Vallora had led 2-1 before, so 'ism\u00e9t' (again) is right",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e26",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "egy 12 m\u00e9teres 89 km/h-s l\u00f6v\u00e9ssel",
+      "new": "egy 12 m\u00e9teres, 89 km/h-s l\u00f6v\u00e9ssel",
+      "reason": "coordinate adjectives take a comma, as the text writes it at 2' ('98 km/h-s, 10,6 m\u00e9terr\u0151l leadott')",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e27",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "Vallora megtartotta birtokl\u00e1si f\u00f6l\u00e9ny\u00e9t \u00e9s ter\u00fcleti dominanci\u00e1j\u00e1t,",
+      "new": "Vallora megtartotta birtokl\u00e1si f\u00f6l\u00e9ny\u00e9t,",
+      "reason": "'ter\u00fcleti dominancia' at a 55.3 % field tilt (and only 26-56 % between 60' and 75') is not backed by the facts",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e28",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "meg\u0151rizve 3-2-es gy\u0151zelm\u00e9t.",
+      "new": "meg\u0151rizve 3-2-es el\u0151ny\u00e9t.",
+      "reason": "a team keeps a lead, not a win, during the match",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e29",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "szerezte meg els\u0151 tornagy\u0151ztes g\u00f3lj\u00e1t",
+      "new": "szerezte meg els\u0151 g\u00f3lj\u00e1t a torn\u00e1n",
+      "reason": "Nagy's 18' goal was his first tournament goal; the tournament-winning goal was the 49' penalty",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e30",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "Vallora 51,9%, enyhe f\u00f6l\u00e9ny a kritikus pillanatokban.",
+      "new": "Vallora 51,9%, enyhe f\u00f6l\u00e9ny.",
+      "reason": "51,9 % is the match possession; at the goals of 18' and 27' Vallora had 49,2 % and 49,3 %, so 'a kritikus pillanatokban' is not backed",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e31",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "a t\u00e1mad\u00f3harmadban, jelent\u0151s dominancia.",
+      "new": "a t\u00e1mad\u00f3harmadban, Northbridge 44,7%.",
+      "reason": "55,3 % vs 44,7 % is no 'significant dominance'; the bullet now gives both shares like the duels bullet",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e32",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "de Vallora hat\u00e9konyabb t\u00e1mad\u00e1skihaszn\u00e1l\u00e1ssal.",
+      "new": "de Vallora t\u00f6bb helyzettel.",
+      "reason": "Vallora scored 3 goals from 2,35 xG and Northbridge 2 from 1,27, so 'more efficient' is not backed; Vallora had 16 shots to 8 and the higher xG; the verbless form keeps the sentence parallel with 'Northbridge nagyobb let\u00e1mad\u00e1si mennyis\u00e9ggel'",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e33",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "ami a kontroll megtart\u00e1s\u00e1ban kulcsfontoss\u00e1g\u00fa volt.",
+      "new": "ami a labdatart\u00e1sban kulcsfontoss\u00e1g\u00fa volt.",
+      "reason": "'kontroll' is a control word without the field tilt; the pass accuracy speaks about keeping the ball",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e34",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "Vallora 54% nyert, Northbridge 45%.",
+      "new": "Vallora 54%-ot nyert, Northbridge 45%-ot.",
+      "reason": "the object needs its accusative ending ('54%-ot')",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e35",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "A match eg\u00e9sz\u00e9ben a kontroll index kiegyenl\u00edtett volt,",
+      "new": "A m\u00e9rk\u0151z\u00e9s eg\u00e9sz\u00e9ben a kontrollindex kiegyenl\u00edtett volt,",
+      "reason": "English 'match' and the term 'kontroll index' in a Hungarian text (glossary: kontrollindex)",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e36",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "hat\u00e9konyabb t\u00e1mad\u00f3j\u00e1t\u00e9kr\u00f3l \u00e9s magasabb passzpontoss\u00e1gr\u00f3l sz\u00f3lt a d\u00f6nt\u0151 pillanatokban.",
+      "new": "vesz\u00e9lyesebb t\u00e1mad\u00f3j\u00e1t\u00e9kr\u00f3l \u00e9s magasabb passzpontoss\u00e1gr\u00f3l sz\u00f3lt.",
+      "reason": "'more efficient' is not backed (3 goals from 2,35 xG against 2 from 1,27); 'more dangerous' is (xG 2,35 vs 1,27, 16 shots to 8); the pass accuracy is a match total (at 2' Northbridge passed better), not a figure of the decisive moments",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    },
+    {
+      "id": "e37",
+      "file": "data/narration/M12_recap_analyst_hu.md",
+      "old": "tudott \u00e9lni a lehet\u0151s\u00e9gekkel, kontroll\u00e1lta a j\u00e1t\u00e9kot \u00e9s \u00edgy",
+      "new": "tudott \u00e9lni a lehet\u0151s\u00e9gekkel, \u00e9s \u00edgy",
+      "reason": "'kontroll\u00e1lta a j\u00e1t\u00e9kot' at a 55.3 % field tilt is not backed by the facts",
+      "date": "2026-10-27",
+      "kind": "targeted fix"
+    }
+  ]
+}

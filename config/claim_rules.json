@@ -1,0 +1,329 @@
+{
+  "_comment": "Professional-claim rules for the Verifier (decision of 23 Oct). A claim matched by one of the patterns must be backed by the listed facts from the state window at the overlay's minute (teams[team]['15min'] / ['5min'], momentum, regime) or by a moment of the given type within the look-back. Rules marked team_claim are checked for the team the claim is written about (named before it in the same sentence, else after it); otherwise, and if no team can be identified, the claim is accepted when either team satisfies it. Patterns starting with 're:' are regular expressions; 'exclude' lists phrases that are no claim of that rule (metric names). Unsupported claims are softened (repair) or removed.",
+  "rules": [
+    {
+      "id": "dominance",
+      "description": "\"dominates / controls / in control / takes control / commands\" (any wording that one team controls the game): the claimed team (named before the claim in the same sentence) needs field tilt >= 58 % in the 15-minute window. Possession alone is not enough; the regime ('a controlled game') and the control index are separate rules",
+      "patterns": {
+        "en": [
+          "re:(?<![a-záéíóöőúüű])domina(?:t|n)\\w*",
+          "re:(?<![a-záéíóöőúüű])in (?:full |total |complete |firm )?control\\b",
+          "re:(?<![a-záéíóöőúüű])(?:take|takes|took|taken|taking|seize[sd]?|seizing|wrest\\w*|regain\\w*|grab\\w*|assume[sd]?|assuming|gain\\w*|keep\\w*|kept|tighten\\w*|maintain\\w*|retain\\w*|establish\\w*|exert\\w*|show\\w*|have|has|had|having|with|enjoy\\w*)\\s+(?:[a-z'’-]+\\s+){0,3}?control\\b",
+          "re:(?<![a-záéíóöőúüű])(?:better|more|greater|firm|full|total|complete|good|tight|real|superior|territorial|overall|clear)\\s+control\\b",
+          "re:(?<![a-záéíóöőúüű])control(?:s|led|ling)?\\s+(?:(?:slightly|much|more|most|far|a|bit|little|clearly|largely|mostly|firmly|comfortably)\\s+){0,3}?(?:of\\s+)?(?:the\\s+|this\\s+)?(?:game|match|play|tempo|midfield|proceedings|contest|ball|possession|territory|rhythm|clash|encounter)\\b",
+          "re:(?<![a-záéíóöőúüű])command(?:s|ed|ing)?\\b",
+          "re:(?<![a-záéíóöőúüű])(?:their|its)\\s+control\\b",
+          "re:(?<![a-záéíóöőúüű])(?:on top|upper hand|running the show|in charge|bossing|taking over|took over|takes over|grip on|stranglehold|ascendan\\w*|dictat\\w*)"
+        ],
+        "hu": [
+          "re:(?<![a-záéíóöőúüű])(?:urald|uralj|uralt|uralm)\\w*",
+          "re:(?<![a-záéíóöőúüű])irányít\\w*",
+          "re:(?<![a-záéíóöőúüű])(?:kézben|kezében) tart\\w*",
+          "re:(?<![a-záéíóöőúüű])fölény\\w*",
+          "re:(?<![a-záéíóöőúüű])domin[aá]\\w*",
+          "re:(?<![a-záéíóöőúüű])kontroll\\w*",
+          "re:(?<![a-záéíóöőúüű])felülkerek\\w*"
+        ]
+      },
+      "requires": {
+        "any": [
+          [
+            "15min",
+            "field_tilt_pct",
+            ">=",
+            58
+          ]
+        ]
+      },
+      "team_claim": true,
+      "exclude": {
+        "en": [
+          "control[ -]index\\w*",
+          "control[ -]regime\\w*",
+          "(?:balanced|chaotic|controlled|open|settled)\\s+(?:control\\s+)?(?:regime|phase|spell|period|stage|state)\\b",
+          "control(?:led)?\\s*(?:/|vs\\.?|versus|and|or|-|–)\\s*chaos\\w*",
+          "chaos\\w*\\s*(?:/|vs\\.?|versus|and|or|to|-|–|into|towards)\\s*(?:a\\s+)?control\\w*",
+          "(?:a|an|the|this)\\s+controlled\\s+(?:game|match|phase|spell|period|tempo|contest|state)",
+          "control of the (?:title|title race|race|championship|tournament)\\b",
+          "commanding (?:\\d[-–]\\d )?(?:lead|advantage in the standings)",
+          "(?:try|tries|trying|tried|effort|efforts|attempt\\w*|push\\w*|looking|looks?|seek\\w*|aim\\w*|bid|fight\\w*|battl\\w*|struggl\\w*|hop\\w*|want\\w*|work\\w*|chas\\w*)\\s+(?:[a-z'’-]+\\s+){0,2}?to\\s+(?:re)?(?:gain|take|seize|wrest|establish|win|grab|get)\\s+(?:back\\s+)?(?:the\\s+)?control\\w*",
+          "(?:contest|battle|fight|struggle|race|tussle)\\s+for\\s+(?:the\\s+)?(?:dominance|control|supremacy)",
+          "(?:from\\s+)?control\\s+(?:to|into|towards)\\s+(?:a\\s+)?chao\\w*",
+          "(?:balanced|even|evenly split|shared|split|equal|mutual)\\s+(?:territorial\\s+)?control\\b",
+          "control\\s+(?:is\\s+)?(?:balanced|even|shared|split)\\b",
+          "chao\\w*\\s+(?:dominat\\w*|reigns|rules)",
+          "(?:dominated|ruled)\\s+by\\s+chao\\w*",
+          "on top of the (?:tournament |league |group )?(?:standings|table|group|league)",
+          "(?:neither|no) (?:team|side) (?:is |was )?(?:dominat\\w*|in control|on top)",
+          "(?:nobody|no one) (?:is )?(?:dominat\\w*|in control)",
+          "(?:try|tries|trying|tried|effort|efforts|attempt\\w*|push\\w*|seek\\w*|aim\\w*|bid|fight\\w*|battl\\w*|struggl\\w*|want\\w*)\\s+(?:[a-z'’-]+\\s+){0,2}?to\\s+(?:dominate|control|take over|boss)\\w*(?:\\s+(?:the\\s+)?(?:possession|game|match|ball|play))?",
+          "(?:came|come|comes|coming|finished|finish\\w*|ended|end\\w*) out on top|(?:finished|ended|stayed|sit\\w*|sat) on top",
+          "(?:out of|beyond|outside)\\s+(?:their|its)\\s+control\\b"
+        ],
+        "hu": [
+          "kontroll[- ]?index\\w*",
+          "területi fölény\\w*",
+          "labdabirtoklási fölény\\w*",
+          "kontroll(?:ált|os)?\\s+(?:szakasz|fázis|játék|állapot|periódus|rezsim|mérkőzés|meccs)\\w*",
+          "kontroll\\w*\\s+(?:és|vagy|–|-|/)\\s+(?:a\\s+)?káosz\\w*",
+          "káosz\\w*\\s+(?:és|vagy|–|-|/|helyett)\\s+(?:a\\s+)?kontroll\\w*",
+          "káoszból\\s+(?:a\\s+)?kontroll\\w*",
+          "kontroll felé",
+          "kontroll – nyugodt játék",
+          "irányító\\w*",
+          "(?:bajnoki|cím)\\w*\\s+(?:verseny\\w*\\s+)?(?:irányítás|kontroll)\\w*",
+          "(?:visszavenni|visszaszerezni|visszanyerni|átvenni|megszerezni|megragadni)\\s+(?:az?\\s+)?(?:irányítás|kontroll)\\w*",
+          "(?:irányítás|kontroll)\\w*\\s+(?:visszavétel|visszaszerzés|visszanyerés|megszerzés|átvétel)\\w*",
+          "(?:irányításért|kontrollért)",
+          "(?:irányítás|kontroll)\\w*\\s+(?:[a-záéíóöőúüű]+\\s+){0,2}?(?:versengés|harc|küzdelem|csata)\\w*",
+          "kontrollról\\s+(?:a\\s+)?káosz\\w*",
+          "káoszról\\s+(?:a\\s+)?kontroll\\w*",
+          "(?:kiegyenlített|kiegyensúlyozott|egyenlő|megosztott|osztott)\\s+(?:az?\\s+)?(?:irányítás|kontroll)\\w*",
+          "(?:irányítás|kontroll)\\w*\\s+(?:[a-záéíóöőúüű]+\\s+)?(?:kiegyenlített|kiegyensúlyozott|megosztott)\\w*",
+          "káosz\\w*\\s+(?:uralj|uralt|uralkod)\\w*",
+          "irányítás\\w*\\s+index\\w*",
+          "egyik (?:csapat\\w*|fél\\w*) sem (?:domin\\w*|uralj\\w*|irányít\\w*)",
+          "(?:irányítás|kontroll)\\w*\\s+egyik csapat\\w*\\s+sem\\s+domin\\w*",
+          "nincs domináns\\w*",
+          "a tabella él\\w*",
+          "(?:próbál\\w*|igyekez\\w*|igyeksz\\w*|akar\\w*|szeretne\\w*)\\s+(?:[a-záéíóöőúüű]+\\s+){0,2}?(?:uralni|dominálni|irányítani|kontrollálni)",
+          "(?:irányítás|kontroll)\\w*\\s+(?:[a-záéíóöőúüű]+\\s+){0,2}?egyensúly\\w*",
+          "birtokl\\w*[^.;\\n]{0,40}?fölény\\w*"
+        ]
+      }
+    },
+    {
+      "id": "high_press",
+      "description": "\"high press / keeps them under pressure\": PPDA <= 8 in the 15-minute window, or a pressing_surge moment in the last 5 minutes",
+      "patterns": {
+        "en": [
+          "high press",
+          "pressing high",
+          "press high",
+          "under pressure",
+          "pressing hard",
+          "intense press",
+          "swarm",
+          "suffocat"
+        ],
+        "hu": [
+          "letámad",
+          "nyomás alatt",
+          "magasan támad",
+          "magas letámadás",
+          "fojtogat",
+          "ráront",
+          "nyomást gyakorol",
+          "szorongat"
+        ]
+      },
+      "requires": {
+        "any": [
+          [
+            "15min",
+            "ppda",
+            "<=",
+            8
+          ],
+          [
+            "moment",
+            "pressing_surge",
+            "within_min",
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "chaos",
+      "description": "\"chaotic / open / end-to-end game\": regime == chaos or control index < -0.15",
+      "patterns": {
+        "en": [
+          "chaotic",
+          "chaos",
+          "open game",
+          "end-to-end",
+          "end to end",
+          "wild",
+          "frantic",
+          "wide open",
+          "basketball"
+        ],
+        "hu": [
+          "kaotikus",
+          "káosz",
+          "nyílt meccs",
+          "nyílt játék",
+          "ide-oda",
+          "oda-vissza",
+          "szétesett",
+          "kapkod",
+          "zűrzavar"
+        ]
+      },
+      "requires": {
+        "any": [
+          [
+            "regime",
+            null,
+            "==",
+            "chaos"
+          ],
+          [
+            "control_index",
+            null,
+            "<",
+            -0.15
+          ],
+          [
+            "moment",
+            "control_chaos_switch",
+            "within_min",
+            1,
+            "chaos"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "control_regime",
+      "description": "\"controlled / patient / settled game\": regime == control or control index > 0.15",
+      "patterns": {
+        "en": [
+          "controlled game",
+          "patient build",
+          "settled",
+          "possession game",
+          "cagey",
+          "tight game",
+          "chess match"
+        ],
+        "hu": [
+          "kontrollált",
+          "türelmes",
+          "megnyugodott",
+          "lelassult a játék",
+          "sakkjátszma",
+          "zárt meccs",
+          "szoros meccs"
+        ]
+      },
+      "requires": {
+        "any": [
+          [
+            "regime",
+            null,
+            "==",
+            "control"
+          ],
+          [
+            "control_index",
+            null,
+            ">",
+            0.15
+          ],
+          [
+            "moment",
+            "control_chaos_switch",
+            "within_min",
+            1,
+            "control"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "turnaround",
+      "description": "\"turnaround / momentum has swung / took control\": a momentum_shift moment within the last 3 minutes",
+      "patterns": {
+        "en": [
+          "turnaround",
+          "momentum has swung",
+          "momentum swing",
+          "momentum shift",
+          "tide has turned",
+          "turned the tide",
+          "swing in momentum",
+          "seized the initiative",
+          "wrestled"
+        ],
+        "hu": [
+          "fordulat",
+          "megfordult a meccs",
+          "megfordult a játék",
+          "lendületváltás",
+          "átbillent",
+          "a lendület át",
+          "magához ragadta",
+          "fordított"
+        ]
+      },
+      "requires": {
+        "any": [
+          [
+            "moment",
+            "momentum_shift",
+            "within_min",
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "id": "elite_player",
+      "description": "\"best / outstanding / elite / top in his position\": a player with position score or a category percentile >= 75 and at least medium reliability (>= 180 tournament minutes); below 180 minutes no ranking or elite claim at all (also checked by agents/verify.py check_ranking_low_data)",
+      "patterns": {
+        "en": [
+          "the best",
+          "best in his position",
+          "outstanding",
+          "elite",
+          "world-class",
+          "top of his position",
+          "standout",
+          "star of the",
+          "sensational",
+          "top fb",
+          "top full-back",
+          "top fullback",
+          "top striker",
+          "top winger",
+          "top midfielder",
+          "top defender",
+          "top-ranked",
+          "top-tier",
+          "number one",
+          "ranked first"
+        ],
+        "hu": [
+          "legjobb",
+          "kiemelkedő",
+          "elit",
+          "világklasszis",
+          "a posztja legjobb",
+          "sztár",
+          "szenzációs",
+          "parádés",
+          "kimagasló",
+          "első számú",
+          "rangsor élén",
+          "élvonalbeli"
+        ]
+      },
+      "requires": {
+        "player": [
+          [
+            "position_score_or_category_pct",
+            ">=",
+            75
+          ],
+          [
+            "minutes",
+            ">=",
+            180
+          ]
+        ]
+      }
+    }
+  ]
+}

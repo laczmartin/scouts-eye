@@ -1,0 +1,17 @@
+{
+  "navigationFallback": { "rewrite": "/index.html", "exclude": ["/data/*", "/*.css", "/*.js", "/*.json"] },
+  "routes": [
+    { "route": "/data/*", "headers": { "Cache-Control": "public, max-age=3600" } },
+    { "route": "/*.js", "headers": { "Cache-Control": "public, max-age=86400" } },
+    { "route": "/*.css", "headers": { "Cache-Control": "public, max-age=86400" } }
+  ],
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+  },
+  "mimeTypes": { ".json": "application/json" },
+  "responseOverrides": { "404": { "rewrite": "/index.html", "statusCode": 200 } }
+}

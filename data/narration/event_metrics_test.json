@@ -1,0 +1,117 @@
+{
+ "note": "tests/test_event_metrics.py",
+ "passed": 22,
+ "total": 22,
+ "rows": [
+  {
+   "case": "pass distance from the coordinates equals pass_length_m (all tournament passes)",
+   "passed": true,
+   "detail": "largest difference 0.10 m"
+  },
+  {
+   "case": "difficulty is between 0 and 1 for every pass",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "a longer pass is harder",
+   "passed": true,
+   "detail": "0.13 < 0.7"
+  },
+  {
+   "case": "a pass under pressure is harder (+0.20)",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "a forward pass is harder than a backward pass of the same length",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "a forward pass of 12.6 m from 60 to 72 crosses into the final third: line-breaking",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "a short pass inside the middle third is not line-breaking",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "a pass into the penalty area from outside is line-breaking and into_box",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "completion falls with every difficulty band (6 bands, all tournament passes)",
+   "passed": true,
+   "detail": "[85.6, 82.9, 77.4, 69.5, 54.1, 35.6]"
+  },
+  {
+   "case": "foot shots 55-115 km/h (match shots are at most the maximal test speed)",
+   "passed": true,
+   "detail": "60-110"
+  },
+  {
+   "case": "median foot shot 75-95 km/h",
+   "passed": true,
+   "detail": "85.9"
+  },
+  {
+   "case": "headers are slower: 25-70 km/h",
+   "passed": true,
+   "detail": "30.2-61.2"
+  },
+  {
+   "case": "pass ball speed 15-90 km/h",
+   "passed": true,
+   "detail": "20.6-85"
+  },
+  {
+   "case": "M12 tags: three kinds (difficult pass, fast shot, fastest run so far)",
+   "passed": true,
+   "detail": "['difficult_pass', 'fast_shot', 'top_speed']"
+  },
+  {
+   "case": "every difficult-pass tag is a completed pass at or above the threshold",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "every fast-shot tag is at or above 100 km/h",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "'fastest run so far' tags only go up",
+   "passed": true,
+   "detail": "[30.2, 30.3, 30.6, 30.7]"
+  },
+  {
+   "case": "tags are in time order and carry a name",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "case": "M12 has a handful of tags, not a flood (5-20)",
+   "passed": true,
+   "detail": "13"
+  },
+  {
+   "case": "a goal item's facts carry the shot speed",
+   "passed": true,
+   "detail": "{'shot': {'shot_speed_kmh': 98.1, 'body_part': 'right_foot', 'distance_m': 10.6, 'outcome': 'goal', 'xg': 0.198, 'penalty': False}}"
+  },
+  {
+   "case": "some items get the player tags of the last 5 minutes",
+   "passed": true,
+   "detail": "27"
+  },
+  {
+   "case": "no item gets a tag from its future",
+   "passed": true,
+   "detail": ""
+  }
+ ]
+}

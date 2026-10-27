@@ -1,0 +1,172 @@
+{
+ "note": "Read by hand (Claude, 27 Oct 2026, day round, after re-runs p1-p7 and the single-agent re-run s1): every text shown in the UI for the whole match (157 overlays EN 82 / HU 75, 17 fact cards, 4 recaps, 2 scouting notes) and all 98 single-agent texts of the comparison, checked against data/synthetic, the line-ups and the state snapshots. Not blind: the reviewer knew which arm wrote each text. The flagged texts of the comparison were classified by their findings; the false-alarm-prone findings (unverified numbers, 'wide open', 'szoros meccs', pressing claims at 2') were read one by one.",
+ "flagged_breakdown": {
+  "single agent (1 call per text, no checks)": {
+   "flagged": 45,
+   "rule_violations": 36,
+   "correct_but_untraceable_numbers": 6,
+   "checker_false_positives": 3
+  },
+  "five agents: Narrator first drafts (before the pre-check)": {
+   "flagged": 39,
+   "rule_violations": 35,
+   "correct_but_untraceable_numbers": 0,
+   "checker_false_positives": 4
+  },
+  "five agents: final on screen (verified text or fact card)": {
+   "flagged": 0,
+   "rule_violations": 0,
+   "correct_but_untraceable_numbers": 0,
+   "checker_false_positives": 0
+  }
+ },
+ "flagged_notes": [
+  "single agent: 6 texts give correct player ages or category scores read through the tools, which are not in its facts; 3 false alarms ('the match is still wide open' read as a chaos claim twice, 'szoros meccs' as a regime claim)",
+  "first drafts: 4 false alarms ('intenzívebb letámadás' at 2' before any PPDA exists, three times; 'very tightly contested' as a regime claim)"
+ ],
+ "not_seen_by_the_checks": {
+  "single agent (1 call per text, no checks)": {
+   "factual_errors": 5,
+   "garbled_sentences": 6,
+   "examples": [
+    "10' (HU): Northbridge 'took the lead in the 10th minute' (the goal was at 2')",
+    "26' (HU): the team's 15 pressures in 5 minutes attributed to Tiago Boateng",
+    "35': Novak '23 pressures' at 35' and 'ranked live' (low data)",
+    "27': Novak 'stands out' (low data; the ranking rule only knows 'standout')",
+    "45+3': Winther 'powers a header' (43 km/h)",
+    "garbled Hungarian: 'Turnéprofilja', 'ráhatás', 'Nagy Alvaro', 'expected gól'"
+   ],
+   "examples_hu": [
+    "10' (HU): a Northbridge 'a 10. percben szerezte meg a vezetést' (a gól a 2. percben volt)",
+    "26' (HU): a csapat 15 letámadása Tiago Boatengnek tulajdonítva",
+    "35': Novak '23 pressures' a 35. percben és 'ranked live' (kevés adat)",
+    "45+3': Winther 'powers a header' (43 km/h)",
+    "döcögős magyar: 'Turnéprofilja', 'ráhatás', 'Nagy Alvaro', 'expected gól'"
+   ],
+   "note": "single-agent texts of re-run s1 (27 Oct day), read by hand"
+  },
+  "five agents: final on screen (verified text or fact card)": {
+   "factual_errors": 4,
+   "garbled_sentences": 5,
+   "examples": [
+    "18' (fan EN): both teams 'sharing possession and pressure evenly' (pressing 2.2 vs 1.4)",
+    "35' (HU): Novak's '10 successful pressures' (the facts have no successful pressures)",
+    "27' (HU): 'slight territorial superiority' at a field tilt of 66 %",
+    "30' (HU): Novak's baseline and live scores mixed without saying which",
+    "garbled or loose wording at 2' and 26' (HU) and at 18' / 26' (EN: the control index read as 'near-equal control from both teams')"
+   ],
+   "examples_hu": [
+    "18' (szurkolói EN): 'egyenlően osztoznak a labdán és a nyomáson' (letámadás 2,2 vs 1,4)",
+    "35' (HU): Novak '10 sikeres letámadása' (a tényekben nincs sikeres letámadás)",
+    "27' (HU): 'enyhe területi fölény' 66 %-nál",
+    "30' (HU): Novak alap- és élő pontszámai keverve, jelölés nélkül",
+    "döcögős megfogalmazás 2'-nél és 26'-nál (HU), 18'-nál és 26'-nál (EN: a kontrollindex mint 'a két csapat egyforma kontrollja')"
+   ]
+  }
+ },
+ "day_fixes_now_caught": [
+  "who is on the pitch: Petrovic 15' and 30', Novak 75' (6 shown texts)",
+  "control / dominance words without field tilt: 9 shown texts (e.g. 49' 'Vallora takes control', 'commands 61.7% possession', 'growing territorial dominance')",
+  "a slight momentum of 0.511 (40', EN and HU), a powerful 30.2 km/h header (18'), 'Andreou penalties to 3-2' (49')",
+  "PPDA explained as 'pressures allowed' (2 recaps), 'more / less effective' pressing (3), a pressing rate written as a count (2)",
+  "Hungarian minutes ('2'-nál', '38'-nál', '60-nál', '80-nál'), the article before a number ('az 49.', 'a 54.', 'a 59.'), 'nyitott bajnokin', 'irányítás indexe'",
+  "a first-half goal 'in the last moments of the match' (45+3' HU), a pressing average 'over the last 15 minutes' (59' HU)",
+  "recaps: 'Northbridge United', 'visszavette / újra vezetéshez' for the first lead, 'növelte előnyét' at 2-2, '2,35-szörös' xG, '8 touches' as a match total, control words at a 55 % match field tilt"
+ ],
+ "checker_false_positive_patterns_fixed_today": [
+  "'92.3% pass accuracy and perfect passing under pressure' (two statistics)",
+  "'51.24% Vallora to 48.76% Northbridge' (the team after the share)",
+  "'on top of the standings', 'came out on top', 'neither team dominates', '… uralkodik'",
+  "'a nyomásgyakorlás kiegyenlített' (no equaliser)",
+  "a playing time of 74 minutes at 70' (stoppage time included)",
+  "a standings row '7-7' (goals for - against) read as a score",
+  "'Entering the match … by a point' (the gap before the match)",
+  "attempts and contests ('effort to regain control', 'attempts to dominate possession', 'contest for dominance', 'próbálja visszavenni az irányítást')",
+  "a Hungarian ordinal ('a 27. percben') ending a sentence"
+ ],
+ "checker_false_positive_patterns_remaining": [
+  "'the match is still wide open' read as a chaos claim",
+  "'szoros meccs' / 'tightly contested' read as a controlled-game claim",
+  "'intenzívebb letámadás' at 2' (no PPDA yet) checked against the high-press rule",
+  "'a small edge in control' is rejected by the control-index rule even with 59 % field tilt"
+ ],
+ "full_match_five_agent_errors_remaining": [
+  "49' (fan EN): Vallora 'presses forward' with a field tilt of 29 %",
+  "66' (EN): Northbridge 'closely matched in chance creation' (not in the facts)",
+  "60' (HU): Novak's duels 'mixed' at 80 % won",
+  "90' (HU): 'enyhe mezőnyfölény' at 71 %",
+  "garbled Hungarian at 49', 56' ('a játék merevsége'), 70' ('javában tartja', '3-2-nél vezet'), 75' ('cserélve lett')"
+ ],
+ "recaps_remaining": [
+  "fan EN (shown in the demo and the video): repaired on 27 Oct (p6), passes every check; read by hand: no error found",
+  "fan HU: fixed by targeted text fixes e14-e20; passes every check; loose wording left: 'ezzel stabilizálva az állást' (three more goals followed), title 'a rangadó győzelmével', 'a hosszabbítás 3. percében' for 45+3', 'Sankt Albrecht SV' / 'Kalmarsund BK' without 'U19' in the table, articles before team names used unevenly, 'vállalt / vállalkozott', '189 nyomás', 'hiába erősített a letámadásán a hajrában' (loose: 14 Northbridge pressures in 82'-87' after 3 in 77'-82')",
+  "analyst HU: fixed by targeted text fixes e21-e37; passes every check; loose wording left: 'sok nyomásváltással' (not a standard term), 'a játékmód kiegyensúlyozott', 'A hátralévő időben bár ...' (word order), 'gondoskodott duplájáról', 'vezetéshez' three times, '19,6 méteres' (true distance, but the shot came from the byline inside the box)",
+  "analyst EN: fixed by targeted text fixes e2-e13; passes every check; loose wording left: 'at the 27th / 49th minute' (idiom: 'in'), 'by 41'' in prose, 'better ball control efficiency', 'insufficient finishing impact', 'The control index hovered near neutral' (match mean -0.064, but -0.21 to -0.39 from 56' to 70'), 'nearly double' xG (1.85), 'In the final stages, Northbridge mounted another pressing surge' (no flagged surge after 68'; Northbridge pressed more than Vallora in 82'-87'), 'a well-placed header'"
+ ],
+ "scouting_remaining": [
+  "none found by the checks; HU: 'területi előrelépés' for progression and 'dominancia a párharcokban' are loose wording"
+ ],
+ "full_match_effect": "In the full five-agent run 17 of 174 text variants are rejected and their fact cards are shown; read by hand, all 17 rejections are right (one borderline: 'Vallora dominál' at a 15-minute field tilt of 57.6 %, the threshold is 58 %). No shown overlay fails a check; three recaps fail the newest recap checks and are listed above.",
+ "superseded": {
+  "night_of_26_27_oct": {
+   "note": "Read by hand (Claude, night of 26-27 Oct 2026, after the night run and the targeted re-runs n1-n12): every text shown in the UI for the whole match (167 overlays EN 84 / HU 83, 7 fact cards, 4 recaps, 2 scouting notes) and every flagged text of the comparison, checked against data/synthetic and the state snapshots. Not blind: the reviewer knew which arm wrote each text. The single-agent texts are the same as on 26 Oct; the five-agent texts are those of the night run.",
+   "not_seen_by_the_checks": {
+    "single agent (1 call per text, no checks)": {
+     "factual_errors": 4,
+     "garbled_sentences": 2,
+     "examples": [
+      "a garbled player name ('Coronária Byrne')",
+      "'Vallora leads by two' at 2-1",
+      "possession given to the wrong team",
+      "Nagy as a midfielder with his name reversed ('Nagy Álvaro'), so the position rule cannot see it"
+     ],
+     "note": "read on 26 Oct; the single-agent texts did not change"
+    },
+    "five agents: final on screen (verified text or fact card)": {
+     "factual_errors": 4,
+     "garbled_sentences": 5,
+     "examples": [
+      "40': Northbridge's momentum 0.511 called 'a slight edge'",
+      "15' (HU): the physical category (37.4) called 'physical duels'",
+      "27' (HU): Novak's ball winning and pressing said to stand out (category scores 41.9 and 46.4)",
+      "45+3' (HU, fan): the equaliser said to give Northbridge control of the match",
+      "garbled Hungarian at 15', 18', 26', 45+3' and one English sentence at 15' ('category scores above 79.5 and 84.4')"
+     ],
+     "examples_hu": [
+      "40': Northbridge 0,511-es lendülete „enyhe előny”-ként",
+      "15' (HU): a fizikai kategória (37,4) „fizikai párharcok”-ként",
+      "27' (HU): Novak labdaszerzése és letámadása „kiemelkedik” (kategóriapontszámok 41,9 és 46,4)",
+      "45+3' (HU, szurkolói): az egyenlítő gól „átvette a mérkőzés irányítását”",
+      "döcögős magyar mondat 15'-nél, 18'-nál, 26'-nál, 45+3'-nél és egy angol 15'-nél"
+     ]
+    }
+   },
+   "flagged_breakdown": {
+    "single agent (1 call per text, no checks)": {
+     "flagged": 23,
+     "rule_violations": 16,
+     "correct_but_untraceable_numbers": 4,
+     "checker_false_positives": 3
+    },
+    "five agents: Narrator first drafts (before the pre-check)": {
+     "flagged": 18,
+     "rule_violations": 14,
+     "correct_but_untraceable_numbers": 1,
+     "checker_false_positives": 3
+    },
+    "five agents: final on screen (verified text or fact card)": {
+     "flagged": 0,
+     "rule_violations": 0,
+     "correct_but_untraceable_numbers": 0,
+     "checker_false_positives": 0
+    }
+   }
+  }
+ },
+ "targeted_edits": {
+  "note": "27 Oct afternoon: 37 phrases replaced (config/targeted_edits.json, apply_targeted_edits.py); each edited text passes the full rule set with no new finding, was read again by hand, and was reviewed by two independent reviewers (facts lens, language/diff lens) and a critic in four rounds; round 1 rejected one replacement (a broken parallel sentence in the analyst HU recap), which was rewritten",
+  "fixed_in_shown_overlays": [
+   "49' (fan EN, scorebug note, also in the video): 'The lead change raises the stakes' -> 'Taking the lead raises the stakes' (e1)"
+  ]
+ }
+}

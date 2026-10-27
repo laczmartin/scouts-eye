@@ -1,0 +1,13 @@
+match_id,matchday,date,day_number,venue,home_team_id,away_team_id,home_score,away_score,live_flag,stoppage_first,stoppage_second,duration_ms
+M01,1,2026-03-02,1,Hollowmere Arena (neutral venue),T1,T2,4,2,False,2,3,5705233
+M02,1,2026-03-02,1,Hollowmere Arena (neutral venue),T3,T4,1,1,False,2,6,5887443
+M03,2,2026-03-05,4,Hollowmere Arena (neutral venue),T1,T3,1,1,False,1,3,5651483
+M04,2,2026-03-05,4,Hollowmere Arena (neutral venue),T2,T4,1,3,False,1,3,5646827
+M05,3,2026-03-08,7,Hollowmere Arena (neutral venue),T4,T1,0,2,False,4,3,5830566
+M06,3,2026-03-08,7,Hollowmere Arena (neutral venue),T2,T3,1,0,False,2,3,5714598
+M07,4,2026-03-11,10,Hollowmere Arena (neutral venue),T3,T1,2,0,False,2,3,5701380
+M08,4,2026-03-11,10,Hollowmere Arena (neutral venue),T4,T2,3,5,False,1,5,5778553
+M09,5,2026-03-14,13,Hollowmere Arena (neutral venue),T1,T4,3,2,False,3,5,5881089
+M10,5,2026-03-14,13,Hollowmere Arena (neutral venue),T3,T2,1,2,False,2,2,5645461
+M11,6,2026-03-17,16,Hollowmere Arena (neutral venue),T4,T3,2,2,False,3,2,5704126
+M12,6,2026-03-17,16,Hollowmere Arena (neutral venue),T2,T1,3,2,True,4,3,5860534

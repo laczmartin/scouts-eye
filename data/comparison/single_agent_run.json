@@ -1,0 +1,33 @@
+{
+  "wall_s": 198.5,
+  "calls": 98,
+  "cached": 0,
+  "failed": 0,
+  "tokens": {
+    "input": 466819,
+    "output": 17807
+  },
+  "cost_usd": 0.2152,
+  "model": "gpt-4.1-mini",
+  "budget_usd": 1.2,
+  "spent_before_usd": 0.7531,
+  "reruns": [
+    {
+      "wall_s": 125.2,
+      "calls": 94,
+      "cached": 0,
+      "failed": 0,
+      "tokens": {
+        "input": 470455,
+        "output": 16487
+      },
+      "cost_usd": 0.2146,
+      "model": "gpt-4.1-mini",
+      "budget_usd": 0.6,
+      "spent_before_usd": 0.2672,
+      "tag": "s1",
+      "texts": 94,
+      "reason": "27 Oct day: the variants whose facts changed since 26 Oct (the night's event metrics and player tags, the regime-switch scope, and now who is on the pitch); 94 of 98 prompts were not in the cache, so the single agent was in effect run again with the same facts the five agents now get"
+    }
+  ]
+}

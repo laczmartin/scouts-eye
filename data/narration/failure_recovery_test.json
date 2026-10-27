@@ -1,0 +1,337 @@
+{
+ "note": "tests/test_failure_recovery.py: fake model, no Azure, no cost. Time limit per call in the test 0.25s, back-off scaled by 0.001 (production: 60 s and 1.0).",
+ "items": [
+  "M12-IT-000",
+  "M12-IT-014",
+  "M12-IT-044"
+ ],
+ "timeout_s": 0.25,
+ "backoff_scale": 0.001,
+ "rows": [
+  {
+   "scenario": "baseline",
+   "injected_fault": "no fault",
+   "expected": "all variants verified",
+   "run_completed": true,
+   "affected_variants": 10,
+   "affected_status": {
+    "verified": 10
+   },
+   "other_variants": 0,
+   "other_status": {},
+   "trace_marks": [],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.1,
+   "calls": 24,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "timeout, once",
+   "injected_fault": "Narrator (1 variant): first call exceeds the time limit",
+   "expected": "retried after the time limit, text verified → recovered",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "recovered": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "narrator:retried"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.33,
+   "calls": 25,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "timeout, persistent",
+   "injected_fault": "Analyst (1 item): every call exceeds the time limit",
+   "expected": "3 attempts, then deterministic insight card; narration and verification continue → recovered",
+   "run_completed": true,
+   "affected_variants": 6,
+   "affected_status": {
+    "recovered": 6
+   },
+   "other_variants": 4,
+   "other_status": {
+    "verified": 4
+   },
+   "trace_marks": [
+    "analyst:timeout"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.85,
+   "calls": 26,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "timeout, verifier",
+   "injected_fault": "Verifier (1 variant): every call exceeds the time limit",
+   "expected": "no verified text → fact card stays (fallback)",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "fallback": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "verifier:timeout"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.85,
+   "calls": 26,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "429, transient",
+   "injected_fault": "Narrator (1 variant): HTTP 429 twice, then OK",
+   "expected": "back-off and retry, text verified → recovered",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "recovered": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "narrator:retried"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.08,
+   "calls": 26,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "429, persistent",
+   "injected_fault": "Narrator (1 variant): HTTP 429 on every call",
+   "expected": "9 attempts with back-off, then fact card stays (fallback)",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "fallback": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "narrator:rate_limit"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.47,
+   "calls": 31,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "invalid JSON, Analyst",
+   "injected_fault": "Analyst (1 item): unreadable answer",
+   "expected": "deterministic insight card, narration continues → recovered",
+   "run_completed": true,
+   "affected_variants": 2,
+   "affected_status": {
+    "recovered": 2
+   },
+   "other_variants": 8,
+   "other_status": {
+    "verified": 8
+   },
+   "trace_marks": [
+    "analyst:invalid_json"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.08,
+   "calls": 24,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "invalid JSON, Narrator",
+   "injected_fault": "Narrator (1 variant): first draft unreadable",
+   "expected": "empty draft fails the pre-check, one repair round → recovered",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "recovered": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "narrator:invalid_json"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.08,
+   "calls": 25,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "invalid JSON, Verifier",
+   "injected_fault": "Verifier (1 variant): unreadable answer",
+   "expected": "keeps the text that passed the deterministic pre-check → recovered",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "recovered": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "verifier:invalid_json"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.07,
+   "calls": 24,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "verifier rejection",
+   "injected_fault": "Verifier (1 variant): verdict reject",
+   "expected": "text dropped and logged, fact card stays (fallback)",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "fallback": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "verifier:rejected"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.07,
+   "calls": 24,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "bug inside one step",
+   "injected_fault": "pre-check raises an exception (1 item, EN)",
+   "expected": "only that variant falls back to the fact card",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "fallback": 1
+   },
+   "other_variants": 9,
+   "other_status": {
+    "verified": 9
+   },
+   "trace_marks": [
+    "verify step:exception"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.07,
+   "calls": 23,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "bug inside one item",
+   "injected_fault": "building the facts of one item raises an exception",
+   "expected": "the item's variants fall back; the other items are not affected",
+   "run_completed": true,
+   "affected_variants": 2,
+   "affected_status": {
+    "fallback": 2
+   },
+   "other_variants": 8,
+   "other_status": {
+    "verified": 8
+   },
+   "trace_marks": [
+    "workflow:exception"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.07,
+   "calls": 18,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "service down",
+   "injected_fault": "every agent call fails (503)",
+   "expected": "every variant keeps its fact card; the run still finishes",
+   "run_completed": true,
+   "affected_variants": 10,
+   "affected_status": {
+    "fallback": 10
+   },
+   "other_variants": 0,
+   "other_status": {},
+   "trace_marks": [
+    "analyst:service_error",
+    "narrator:service_error",
+    "scout:service_error"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.1,
+   "calls": 56,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "spending limit",
+   "injected_fault": "the cost limit is reached after about 10 calls",
+   "expected": "no new paid call starts; the variants still waiting keep their fact card, the run finishes",
+   "run_completed": true,
+   "affected_variants": 10,
+   "affected_status": {
+    "fallback": 10
+   },
+   "other_variants": 0,
+   "other_status": {},
+   "trace_marks": [
+    "narrator:budget",
+    "verifier:budget"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.04,
+   "calls": 12,
+   "passed": true,
+   "error": null
+  },
+  {
+   "scenario": "recap agent down",
+   "injected_fault": "Recap writer: every call fails (503)",
+   "expected": "deterministic recap (score and goals) is written; the run goes on",
+   "run_completed": true,
+   "affected_variants": 1,
+   "affected_status": {
+    "fallback": 1
+   },
+   "other_variants": 0,
+   "other_status": {},
+   "trace_marks": [
+    "document_check:fallback"
+   ],
+   "fact_card_in_place": true,
+   "elapsed_s": 0.02,
+   "calls": 4,
+   "passed": true,
+   "error": null
+  }
+ ],
+ "passed": 15,
+ "total": 15
+}

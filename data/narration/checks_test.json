@@ -1,0 +1,1743 @@
+{
+ "note": "tests/test_checks.py: free test cases for the checker fixes",
+ "passed": 248,
+ "total": 248,
+ "rows": [
+  {
+   "fix": "a",
+   "case": "Verifier swaps Petrovic for Vermeulen",
+   "expected": "['Vermeulen']",
+   "got": "['Vermeulen']",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "Verifier only removes a name",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "focus overlay without the focus player",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "focus overlay with the surname",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "a goal by Andreou in Novak's focus feed need not name Novak",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "a state card in Novak's focus feed must name Novak",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Ferris (T3) tied to the match clock",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Ferris profile text that says he is not in this match",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "'does not feature in this ... vs ... match' is understood",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "'not involved in this Vallora vs Northbridge match' is understood",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "'He does not participate in this match' is understood",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "naming the absent player's own club does not crash the claim check",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Petrovic (T1) plays: no absent-player rule",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Ferris called a defender (he is a striker)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Blanchard called a left-back (right-back)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Blanchard called a full-back (correct)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Nagy called a striker (winger)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "'Nagy helyzet ... csatár' (nagy = big) is not about Alvaro Nagy",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "'Nagy helyzet' in a Verifier repair is not a new name",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Petrovic as left-back: he played LB in M12 (primary RB)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Winther as striker: secondary ST, played ST in M12",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "'védőpárharc' is not a position",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Petrovic '75 perc játék alatt' at 75' (on the pitch for 21 minutes)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "b",
+   "case": "Petrovic 'just over 20 minutes' at 75' (correct)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'level on points before kickoff' (10 and 9)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'egy ponttal megelőzve' after the match (margin 2)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'within a point' before the match (correct)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'tripling' the xG (2.35 vs 1.27)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'16 kapura lövés' (shots on target are not in the facts)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'21 százalékkal több lövés' (16 vs 8 is 100 % more)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "'4 % more passes' (328 vs 316, correct)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "final standings 12 and 10 points (correct)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "c",
+   "case": "a score that never happened (3-1)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'top FB' about Petrovic (low data)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'kiemelkedő' about Novak (low data) in a non-focus text",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'top pressing and finishing skills' about Petrovic (low data)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'top of the table' without a low-data player: allowed",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'top ... Alessandro Novak' is not about Dominik Novak (low data)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'his top strengths include' (his own best traits) about Petrovic: allowed",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "no ranking word: allowed",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'95+ minutes' at 90'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'90+2'' at 90' (later than the clock)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'97 perc játék alatt' at 90' (95 minutes have been played, stoppage time included)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'95 perc játék alatt' at 90' is the elapsed time (first-half stoppage included)",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'78 percentile' is not a playing time",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'222.8 tournament minutes' is not a match time",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "'Vallora United U19's pressing' at 18' is not minute 19",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "e",
+   "case": "the 45+3' equaliser mentioned at 90' (earlier: fine)",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "'92 percentile' in English is English",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "Hungarian 'perc' in an English text is still caught",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "'kiegyenlített döntőben' (balanced) is not an equaliser",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "'egy kiegyenlített, de ... mérkőzésen' is not an equaliser",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "'a labdabirtoklás egyenlő' is not an equaliser",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "a real 'egyenlített' for a lead goal is still caught",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "f",
+   "case": "'16-oson belül' is not a number",
+   "expected": "(True, [])",
+   "got": "(True, [])",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "'tight title decider' is a stock phrase",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "'title decider' alone is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "63': 'presztízspresszió' is not a Hungarian football term",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "'északi vezetés' translates the team name",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "normal Hungarian ('letámadás', 'területi fölény') passes",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "'the first five minutes' at 2'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "'the last 15 minutes' at 30' is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "59': '9.2 per 5 minutes' as the current rate",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "59': '9.2 on average' is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "Novak '93% pass accuracy under pressure' (93 % overall, 100 % under pressure)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "Petrovic '78.4%' offensive duels (a category score)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "team possession 48 % in a Petrovic focus text is not a category score",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "d",
+   "case": "'progressive passes #10' is not '#1'",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "recap: 'late second-half penalty' at 49'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "recap: 'late first-half equaliser' (45+3') is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "recap: 'Szerelések száma' (pressures are not tackles)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "recap: 'xG alapján is szoros' (2.35 vs 1.27)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "g",
+   "case": "recap: 'többször cseréltek vezetést' (once)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "h",
+   "case": "'keeping the title race wide open' is not a chaos claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "h",
+   "case": "'balanced between control and chaos' is not a chaos claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "h",
+   "case": "a real 'chaotic, end-to-end' claim is still checked",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "h",
+   "case": "'a területi fölénye kiegyenlített' (balanced) is not an equaliser",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "h",
+   "case": "an absent player's text that says so may carry the item clock",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "h",
+   "case": "stock phrases are trimmed: 'narrow 3-2 lead' -> '3-2 lead', 'intense title decider' -> 'title decider'",
+   "expected": "('Vallora hold a 3-2 lead', 'A 3-2 lead in this title decider.', 2)",
+   "got": "('Vallora hold a 3-2 lead', 'A 3-2 lead in this title decider.', 2)",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "an English overlay in the Hungarian feed (63')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "a Hungarian overlay passes the field check",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'Chaos uralja a játékot' (English word in Hungarian)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'másodpercenként 3,13' possession changes",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'control index favoring them' (the index is not one team's)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'a címvédő Northbridge' (no defending champion)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'az üres kapu mellé' (not in the facts)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'labdakiért', 'góljátszás' are not Hungarian words",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "recap: 'late 3-2 win' (winner at 49')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "dominance claim 'átvéve a mérkőzés irányítását' is checked",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "j",
+   "case": "'-0,027' is read as 0.027 (facts -0.027), not as 27",
+   "expected": "(True, [])",
+   "got": "(True, [])",
+   "passed": true
+  },
+  {
+   "fix": "j",
+   "case": "'-0.075' is read as 0.075 (facts -0.075)",
+   "expected": "(True, [])",
+   "got": "(True, [])",
+   "passed": true
+  },
+  {
+   "fix": "j",
+   "case": "a wrong number is still caught ('2.4' when the facts say -0.075)",
+   "expected": "(False, ['2.4'])",
+   "got": "(False, ['2.4'])",
+   "passed": true
+  },
+  {
+   "fix": "j",
+   "case": "a score '2-1' is two numbers 2 and 1",
+   "expected": "(True, [])",
+   "got": "(True, [])",
+   "passed": true
+  },
+  {
+   "fix": "i",
+   "case": "'passes per possession' in a Hungarian text",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "j",
+   "case": "'az irányítás és a káosz között' (between control and chaos) is not a chaos claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "56': 'Northbridge 60%-ban birtokolja a labdát' (60 % is Vallora's)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "56': 'Vallora United U19 has held 60% possession in the last 15 minutes' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'A csapat … 51,2%, míg a Northbridge-é 48,7%' names no team before the first share: not checked",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "60': 'Northbridge többet tartja a labdát' (26 / 34 / 47 %)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "60': 'Vallora having slightly more possession' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "control index as one team's: 'Vallora United U19 leads 2-1 and hold a slight control advan…'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "control index as one team's: 'Northbridge FC U19 switches from a less structured phase to …'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "control index as one team's: 'Vallora United U19 holds a slight advantage in possession an…'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "control index as one team's: 'The control index favors Northbridge slightly at -0.105.…'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'Northbridge FC U19 átállt a kontrollált játékra'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'At 31' the match shifted into a chaos regime with a control index of -0.215' is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'a területi fölénye kiegyenlített, a kontrollindex -0,39' (a comma between) is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'A passzolások száma tartósan 2,14' (passes per possession)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'a passzok száma birtoklásonként 1,43' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'a powerful header' at 30 km/h",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'erős fejes' at 30 km/h",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'erőteljesebb letámadással' in a goal text is not a shot word",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'a powerful right-footed shot' at 98 km/h is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "garbled 'középmezőnyös megbízhatóság' gets 'közepes megbízhatóság'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "garbled 'presszionál' gets 'letámad'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "garbled 'területi mutató' gets 'pozíciós pontszám'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "Hungarian decimal comma: '57.1%-kal' is shown as '57,1%-kal', the clock '45+3'' stays",
+   "expected": "57,1%-kal a 45+3'-ben, 0,455 xG",
+   "got": "57,1%-kal a 45+3'-ben, 0,455 xG",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'control index of -0.168, slightly favoring Northbridge' (a comma between)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'A kontrollindex -0,282, ami még mindig a Vallora United U19-nek kedvez'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'enyhén Northbridge FC felé billen a kontrollindex'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'a 0,027-es kontrollindex mellett, a mezőnyfölény azonban a Vallora felé billen' (the tilt leans, not the index)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'control index of 0.02, with field tilt favoring Vallora' (the tilt favours, not the index)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'2.27 nyomás/5 perc' (pressing intensity is per minute)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "'15 pressures in the last 5 minutes' (a count) is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'Both teams matched in duels won' (54.0 % vs 45.5 %)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'Northbridge's higher pressing and number of duels won'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'Vallora won more duels' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'a powerful header' for Nagy's 30 km/h goal",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'a hajrában … Andreou duplájával megfordította' (the winner came at 49')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'two foots the winning margin' is garbled",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "scouting: Novak (DM) 'támadó középpályásként' in his own section",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "scouting: Novak 'védekező középpályásként' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "document: 'Hollomere Arénában' (the venue is Hollowmere)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "document: 'a alakítások' (az before a vowel)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "document: '(control index közel nulla)' is English in Hungarian",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "document: 'kapariórás birtoklás' is garbled",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: Byrne's 10.6 m goal 'from outside the box'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: Andreou's 19.6 m goal 'from distance' is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'a close-range header (xG 0.65) to level the score' is not 'xG close'",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'the xG was close (2.35 vs 1.27)' is still caught",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'egy fantasztikus hajrával szerezte meg a bajnoki címet' (winner at 49')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'a Nyugat-négyes utolsó fordulója' (an invented competition name)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'Winther fejese az utolsó pillanatokban egyenlített (45+3')' is a first-half stoppage-time goal",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: '12 ponttal végzett az élen, két ponttal megelőzve' (a total and the right margin)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "recap: 'három ponttal megelőzve' after the match is still caught (margin 2)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "38': 'Vallora … compared to Northbridge's 0.208 and had 56.1% possession' (both teams before the share): not flagged",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "47' regime switch: the facts name no team (the regime is the whole match)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "k",
+   "case": "47' switch from chaos to control: 'the match shifts from chaos to a control regime' is supported",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "15': Petrovic (on the bench so far) written as playing",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "15': 'Petrovic, still on the bench' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "15' HU: a profile text that does not say he is on the bench",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "15' HU: 'Petrovic a kispadon ül' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "60': Petrovic is on the pitch since 54': not 'still on the bench'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "60': 'Petrovic came off the bench at 54'' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "75': Novak (substituted at 70') written as playing",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "75': 'Novak, substituted at 70'' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "70' substitution: 'Novak off, Fernandes on' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "70' substitution HU: 'Dominik Novak le, Viggo Fernandes be' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "30': any text naming a player who has not come on yet must say so",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "75': a player who went off may be named for what he did ('Andreou's brace')",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "the facts never reveal a later substitution (no '54'' at 15')",
+   "expected": "False",
+   "got": "False",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "after 54' the facts say since when he plays",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "focus facts carry the pitch status and the rule (Petrovic at 30')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "n",
+   "case": "the Scout's facts carry it too",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "49': 'Vallora takes control' (field tilt 33 %, possession 60 %)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "49': 'Vallora now commands 61.7% possession' (possession alone is not enough)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "49': 'growing territorial dominance' for Vallora",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "45+3': Northbridge (field tilt 67 %) 'átvette a mérkőzés irányítását' is backed",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "49': the claim belongs to the team it is written about ('Northbridge press, while Vallora take control')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "an attempt is no claim: 'their effort to regain control'",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "HU: 'próbálja visszavenni az irányítást' is no claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "metric names are no claim ('control index', 'kontrollindex', 'területi fölény')",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "a regime switch is no team claim ('shifted from control to chaos', 'kontrollról káoszra')",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "27' HU: 'ők irányítják a játékot' after 'Vallora' (field tilt 66 %) is backed",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "o",
+   "case": "'a nearly even contest for dominance' is no claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "'PPDA (Pressures allowed per defensive action)' explains PPDA wrongly",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "'PPDA (passes allowed per defensive action)' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "HU: 'PPDA (engedett passzok nyomás alatt)' is wrong",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "HU: 'PPDA (az ellenfél passzai egy védekező akcióra)' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "85' HU: 'hatékonyabb nyomásgyakorlással' (the facts measure intensity)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "'more intense pressing' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "85': '174 pressures overall and 1.87 in the last 15 minutes' (a rate written as a count)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "'1.87 pressures per minute' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "a pressing category score is no rate ('a letámadás (32,7)')",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "40': 'a slight edge' for a momentum of 0.511",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "a slight momentum of 0.21 is fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "HU minute '3-2-nél 60-nál' (write 'a 60. percben')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "HU: '3-2-nél' (a score) and '60-nál több passz' (a comparison) are fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "15' HU: an English sentence in a Hungarian text",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "garbled: 'a győztes fő esélyesként emelkedett ki'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "garbled: 'nyitott állásnál vonultak pihenőre' (at 2-2)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "garbled: 'nem hagyta magát lelépni', 'nyitott bajnokin', 'fizikai párharcokban'",
+   "expected": "3",
+   "got": "3",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "English in Hungarian: 'possessionnel'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "27' HU: 'Novak labdaszerzése és letámadása kiemelkedik (41,9 és 46,4)' (both below 75)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "'Petrovic's pressing (85.9) stands out, while his passing (48.0) lags' is right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "p",
+   "case": "scouting HU: Blanchard 'Védekezési aktivitása viszont kiemelkedő (68,2)'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "27': '92.3% pass accuracy and perfect passing under pressure' is two statistics",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "49': '51.24% Vallora to 48.76% Northbridge' (the team follows the share)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "'Vallora 49.2%, Northbridge 50.8%' (team before, comma after) stays right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "49': '48.76% Vallora' is still caught when the team follows the share",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "49': 'puts Vallora United on top of the tournament standings' is no dominance claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "HU: 'az irányítás egyik csapatnál sem domináns', 'kiegyensúlyozott játék uralkodik' are no claims",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "49' HU: 'a birtoklás és nyomásgyakorlás kiegyenlített' is no equaliser",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "70': Novak 'played about 74 minutes' (70' is 74.8 minutes after kick-off)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "recap table: Sankt Albrecht's goals '7-7' (goals for - against) are no match score",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "r",
+   "case": "recap table: '7-9' for Sankt Albrecht is caught against the final standings",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "18': 'a powerful 30.2 km/h header' (a number between the words)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "40': 'Northbridge holds a slight momentum edge' without a number (momentum 0.51)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "40' HU: 'a lendület enyhén a Northbridge javára billen' (0,51)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "47': 'a control index of 0.173 indicating a slight dominance' (the index is no team's dominance)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "49': 'Iker Andreou penalties to 3-2' (a noun used as a verb)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "60': 'Vallora controlling slightly more possession' (possession alone)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "63': 'pressing intensity is higher but less effective'",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "HU minutes: \"2'-nál\", \"38'-nál\", \"45+3'-nál\"",
+   "expected": "[True, True, True]",
+   "got": "[True, True, True]",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "HU minutes: \"38'-ban\" and 'a 38. percben' are fine",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "HU article before a number: 'az 49. percben', 'a 54. percben' are wrong",
+   "expected": "[True, True]",
+   "got": "[True, True]",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "HU article before a number: 'a 49.', 'az 54.', 'az 5.', 'a 18.' are right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "45+3' HU: 'a mérkőzés utolsó pillanataiban' for a first-half goal",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "pressing surge: the match average 'over the last 15 minutes' (it is the whole match so far)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "an absent player's marker only in the hidden detail is not enough (what the viewer reads must say it)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "'slightly' next to another word is no momentum claim ('Northbridge's slightly stronger pressing, Vallora carries the momentum')",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "'this goal shifts momentum slightly' is a change, not a level",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "s",
+   "case": "'yet to translate pressure into control as the match remains unsettled' is no dominance claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'the previously top-ranked Northbridge United' (the team is Northbridge FC)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'Northbridge FC' and 'Vallora United' are right",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap HU: 'Andreou a 27. percben visszavette a vezetést' (Vallora had not led before)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap HU: 'a 49. percben ismét Vallora vezetett' is right (Vallora led 2-1 before)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap HU: 'büntetőből szerzett góllal növelte előnyét' at 2-2 (the goal takes the lead)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap HU: 'Vallora 2,35-szörös várható gólértékkel' (2,35 is the xG itself)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: Andreou 'made eight touches in the box' (8 is his count at 41')",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'Byrne ... from just over 10 meters' is no running count",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'territorial dominance' with a match field tilt of 55.3 %",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'Northbridge's attempts to dominate possession' is no claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap HU: 'Labdabirtoklás: Vallora 51,9%, enyhe fölény' is a possession share, not dominance",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "a Hungarian ordinal does not end a sentence ('a 27. percben')",
+   "expected": "2",
+   "got": "2",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "18': 'mutual territorial control' is no team claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'Entering the match, Northbridge led the table by a point' is the gap before the match",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "t",
+   "case": "recap: 'Vallora came out on top' (won) is no dominance claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "recap: 'underpinning their control at key moments' with a match field tilt of 55.3 %",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "recap: 'some things were out of their control' is no claim",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "targeted edits: every recap edit is applied (the new phrase once, the old phrase gone)",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "targeted edits: a regenerated recap (the old phrases back) no longer counts as edited",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "targeted edits: M12_recap_analyst_en.md passes the document and recap checks",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "targeted edits: M12_recap_fan_hu.md passes the document and recap checks",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "targeted edits: M12_recap_analyst_hu.md passes the document and recap checks",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "u",
+   "case": "targeted edits: every overlay edit is applied and marked 'edited: targeted fix' in the trace",
+   "expected": "[]",
+   "got": "[]",
+   "passed": true
+  },
+  {
+   "fix": "q",
+   "case": "compare_agents.score_text flags a garbled term the pre-check flags (wording)",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  },
+  {
+   "fix": "a",
+   "case": "workflow: Verifier name swap is blocked, the narrator text is kept",
+   "expected": "True",
+   "got": "True",
+   "passed": true
+  }
+ ]
+}

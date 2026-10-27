@@ -1,0 +1,14 @@
+{
+  "_comment": "Generic, illustrative position weights. Each column sums to 100. Not any club's internal model.",
+  "categories": ["finishing", "goal_contribution", "chance_creation", "passing", "progression",
+                 "offensive_duels", "defensive_duels", "aerial_play", "defensive_activity", "pressing", "physical"],
+  "weights": {
+    "CB": {"finishing": 0, "goal_contribution": 0, "chance_creation": 0, "passing": 15, "progression": 15, "offensive_duels": 0, "defensive_duels": 20, "aerial_play": 20, "defensive_activity": 20, "pressing": 5, "physical": 5},
+    "FB": {"finishing": 0, "goal_contribution": 5, "chance_creation": 15, "passing": 10, "progression": 15, "offensive_duels": 10, "defensive_duels": 15, "aerial_play": 0, "defensive_activity": 10, "pressing": 10, "physical": 10},
+    "DM": {"finishing": 0, "goal_contribution": 0, "chance_creation": 0, "passing": 20, "progression": 15, "offensive_duels": 0, "defensive_duels": 20, "aerial_play": 5, "defensive_activity": 20, "pressing": 15, "physical": 5},
+    "CM": {"finishing": 0, "goal_contribution": 5, "chance_creation": 10, "passing": 20, "progression": 20, "offensive_duels": 5, "defensive_duels": 10, "aerial_play": 0, "defensive_activity": 10, "pressing": 15, "physical": 5},
+    "AM": {"finishing": 15, "goal_contribution": 10, "chance_creation": 25, "passing": 10, "progression": 15, "offensive_duels": 15, "defensive_duels": 0, "aerial_play": 0, "defensive_activity": 0, "pressing": 5, "physical": 5},
+    "W":  {"finishing": 15, "goal_contribution": 10, "chance_creation": 20, "passing": 5, "progression": 15, "offensive_duels": 20, "defensive_duels": 0, "aerial_play": 0, "defensive_activity": 0, "pressing": 10, "physical": 5},
+    "ST": {"finishing": 35, "goal_contribution": 10, "chance_creation": 10, "passing": 5, "progression": 0, "offensive_duels": 10, "defensive_duels": 0, "aerial_play": 10, "defensive_activity": 0, "pressing": 5, "physical": 10}
+  }
+}

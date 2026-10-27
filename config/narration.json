@@ -1,0 +1,45 @@
+{
+  "_comment": "Narration thresholds per mode. Importance and types refer to data/kpi/live/M12_moments.jsonl.",
+  "languages": ["hu", "en"],
+  "personas": ["fan", "analyst"],
+  "club_views": ["neutral", "T1", "T2"],
+  "focus_players": ["T1P09", "T2P12", "T3P20", "T4P11"],
+  "modes": {
+    "fan": {
+      "moment_types": ["goal", "big_chance", "momentum_shift", "milestone"],
+      "card_outcomes": ["red"],
+      "min_importance": 0.0,
+      "state_card_every_min": 10,
+      "cooldown_min": 2,
+      "target_overlays": [25, 35]
+    },
+    "analyst": {
+      "moment_types": null,
+      "card_outcomes": ["yellow", "red"],
+      "min_importance": 0.4,
+      "state_card_every_min": 5,
+      "cooldown_min": 2,
+      "target_overlays": [50, 70]
+    },
+    "focus": {
+      "moment_types": null,
+      "card_outcomes": ["yellow", "red"],
+      "min_importance": 0.0,
+      "state_card_every_min": 15,
+      "cooldown_min": 2,
+      "target_overlays": [8, 30]
+    }
+  },
+  "cooldown_exempt_types": ["goal"],
+  "overlay_max_chars": 90,
+  "overlay_duration_ms": 6000,
+  "number_tolerance_relative": 0.06,
+  "number_tolerance_absolute": 0.6,
+  "low_data_minutes_tournament": 180,
+  "low_data_minutes_live": 20,
+  "llm_concurrency": 3,
+  "llm_timeout_s": 60,
+  "_llm_timeout_comment": "per agent call; the slowest call in the committed run took 17 s. Retries and back-off per failure kind: agents/llm.py RETRY_DELAYS.",
+  "llm_backoff_scale": 1.0,
+  "price_per_million_tokens_usd": {"input": 0.40, "output": 1.60}
+}

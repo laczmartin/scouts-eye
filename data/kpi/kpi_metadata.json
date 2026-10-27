@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "data": "data/synthetic",
+  "reference_seeds": [
+    1000,
+    1049
+  ],
+  "shrink_k": 270.0,
+  "generated_at": "2026-10-23T19:51:26.435588+00:00",
+  "weights_file": "config/position_weights.json"
+}

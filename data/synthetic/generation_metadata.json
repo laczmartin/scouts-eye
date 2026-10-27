@@ -1,0 +1,189 @@
+{
+  "seed": 42,
+  "generator_version": "0.1.0",
+  "generated_at": "2026-10-23T18:39:32.590284+00:00",
+  "tournament_start": "2026-03-02",
+  "title_decider_attempt": 1030,
+  "team_profiles": {
+    "T1": {
+      "formation": "4-3-3",
+      "strength": 71,
+      "style_possession": 0.5,
+      "style_pressing": 0.75,
+      "style_directness": 0.55
+    },
+    "T2": {
+      "formation": "4-2-3-1",
+      "strength": 70,
+      "style_possession": 0.45,
+      "style_pressing": 0.85,
+      "style_directness": 0.6
+    },
+    "T3": {
+      "formation": "3-5-2",
+      "strength": 65,
+      "style_possession": 0.4,
+      "style_pressing": 0.65,
+      "style_directness": 0.7
+    },
+    "T4": {
+      "formation": "4-4-2",
+      "strength": 66,
+      "style_possession": 0.85,
+      "style_pressing": 0.35,
+      "style_directness": 0.3
+    }
+  },
+  "simulation_parameters": {
+    "t_pass": 1.9,
+    "t_carry": 2.6,
+    "t_dribble": 2.4,
+    "t_shot": 1.5,
+    "t_duel": 1.2,
+    "t_pressure": 0.4,
+    "t_throw_in": 14.0,
+    "t_free_kick": 22.0,
+    "t_corner": 28.0,
+    "t_goal": 55.0,
+    "t_kickoff": 4.0,
+    "t_goal_kick": 16.0,
+    "t_substitution": 20.0,
+    "p_pass": 0.67,
+    "p_carry": 0.26,
+    "p_dribble": 0.04,
+    "p_clearance_own_third": 0.09,
+    "possession_pass_bonus": 0.09,
+    "p_long": 0.08,
+    "directness_long_scale": 0.08,
+    "p_shot_base": 0.18,
+    "shot_xg_scale": 1.0,
+    "logit_short": 1.5,
+    "logit_long": 0.25,
+    "k_passing": 0.75,
+    "pressure_penalty": 0.55,
+    "progression_penalty": 0.012,
+    "possession_bonus": 0.38,
+    "final_third_penalty": 0.0,
+    "zone_slope": 0.018,
+    "p_fail_interception": 1.0,
+    "p_fail_clearance": 0.14,
+    "p_fail_out": 0.16,
+    "p_aerial_on_high": 0.18,
+    "p_aerial_neutral": 0.1,
+    "p_carry_challenge": 2.2,
+    "challenge_zone_scale": 2.0,
+    "high_press_scale": 0.34,
+    "logit_defender_wins": 1.42,
+    "k_tackling": 0.9,
+    "k_carrying": 0.8,
+    "p_dribble_success": 0.36,
+    "p_foul_in_duel": 0.165,
+    "p_attacker_foul": 0.12,
+    "p_yellow": 0.135,
+    "p_yellow_late_bonus": 0.03,
+    "p_pressure_base": 0.26,
+    "pressing_scale": 1.0,
+    "goal_overperformance": 1.13,
+    "p_on_target": 0.36,
+    "p_blocked_share": 0.42,
+    "p_corner_after_block": 0.5,
+    "p_corner_after_save": 0.45,
+    "p_corner_after_clearance": 0.38,
+    "p_corner_after_box_fail": 0.3,
+    "p_offside": 0.045,
+    "fatigue_penalty": 0.09,
+    "sub_windows": [
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ]
+    ],
+    "p_straight_red": 0.006,
+    "p_injury_minor": 0.012,
+    "p_injury_major": 0.003,
+    "load_recovery": 0.45,
+    "load_ability_penalty": 0.1,
+    "load_physical_penalty": 0.06,
+    "ten_men_pass_penalty": 0.2,
+    "ten_men_shot_factor": 0.8,
+    "ten_men_opp_shot_factor": 1.15,
+    "possession_shot_bonus": -0.2,
+    "trailing_shot_bonus": 0.25,
+    "trailing_direct_bonus": 0.12,
+    "leading_pressing_cut": 0.15
+  },
+  "pitch_m": [
+    105.0,
+    68.0
+  ],
+  "venue": "Hollowmere Arena (neutral venue)",
+  "injuries": [
+    {
+      "team_id": "T1",
+      "player_id": "T1P16",
+      "severity": "minor",
+      "match_id": "M03"
+    },
+    {
+      "team_id": "T2",
+      "player_id": "T2P23",
+      "severity": "minor",
+      "match_id": "M04"
+    },
+    {
+      "team_id": "T2",
+      "player_id": "T2P23",
+      "severity": "major",
+      "match_id": "M08"
+    },
+    {
+      "team_id": "T2",
+      "player_id": "T2P22",
+      "severity": "minor",
+      "match_id": "M10"
+    },
+    {
+      "team_id": "T3",
+      "player_id": "T3P08",
+      "severity": "minor",
+      "match_id": "M11"
+    }
+  ],
+  "rules": {
+    "suspension_two_yellows": 1,
+    "suspension_second_yellow": 1,
+    "suspension_straight_red": 2,
+    "minor_injury_matches_missed": 1,
+    "major_injury": "rest of tournament",
+    "squad_size": 23,
+    "substitutions": "5 per match in at most 3 windows",
+    "eligibility_born_from": "2008-01-01"
+  },
+  "note": "All teams, players and events are fictional and synthetic."
+}

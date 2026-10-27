@@ -1,0 +1,21 @@
+{
+  "text_variants": 18,
+  "mean_latency_s": 16.95,
+  "fact_card_latency_s": {
+    "mean": 0.015,
+    "max": 0.024,
+    "n": 5
+  },
+  "upgrade_latency_s": {
+    "mean": 16.25,
+    "median": 24.91,
+    "max": 24.97,
+    "n": 14
+  },
+  "llm_calls": 24,
+  "cached": 17,
+  "tokens": 51363,
+  "retries_429": 0,
+  "replay_speed": 1,
+  "scope": "first 320 events (about 12 match minutes), real tempo"
+}

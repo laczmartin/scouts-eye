@@ -1,0 +1,122 @@
+{
+  "segment": "M12 first half",
+  "items": 33,
+  "texts": 98,
+  "model": "gpt-4.1-mini",
+  "rows": [
+    {
+      "arm": "single agent (1 call per text, no checks)",
+      "texts": 98,
+      "empty": 0,
+      "numbers": 7,
+      "names": 0,
+      "claims": 15,
+      "too_long": 0,
+      "goal": 0,
+      "clock": 0,
+      "venue": 1,
+      "language": 0,
+      "grammar": 0,
+      "player": 9,
+      "wording": 16,
+      "any_error": 45,
+      "calls": 98,
+      "tokens": 497304,
+      "cost_usd": 0.2195,
+      "llm_s_per_text": 3.5
+    },
+    {
+      "arm": "five agents: Narrator first drafts (before the pre-check)",
+      "texts": 98,
+      "empty": 0,
+      "numbers": 1,
+      "names": 0,
+      "claims": 16,
+      "too_long": 0,
+      "goal": 0,
+      "clock": 0,
+      "venue": 1,
+      "language": 1,
+      "grammar": 0,
+      "player": 2,
+      "wording": 22,
+      "any_error": 39,
+      "calls": null,
+      "tokens": null,
+      "cost_usd": null,
+      "llm_s_per_text": null
+    },
+    {
+      "arm": "five agents: final on screen (verified text or fact card)",
+      "texts": 98,
+      "empty": 0,
+      "numbers": 0,
+      "names": 0,
+      "claims": 0,
+      "too_long": 0,
+      "goal": 0,
+      "clock": 0,
+      "venue": 0,
+      "language": 0,
+      "grammar": 0,
+      "player": 0,
+      "wording": 0,
+      "any_error": 0,
+      "calls": 259,
+      "tokens": 840420,
+      "cost_usd": 0.4279,
+      "llm_s_per_text": 8.3
+    }
+  ],
+  "single_agent_wall_s": 198.5,
+  "five_agent_full_match_wall_s": 540.0,
+  "five_agent_status": {
+    "verified": 88,
+    "fallback": 6,
+    "recovered": 4
+  },
+  "five_agent_rerun": {
+    "items": [
+      "M12-IT-001",
+      "M12-IT-002",
+      "M12-IT-003",
+      "M12-IT-006",
+      "M12-IT-007",
+      "M12-IT-013",
+      "M12-IT-014",
+      "M12-IT-016",
+      "M12-IT-018",
+      "M12-IT-021",
+      "M12-IT-023",
+      "M12-IT-024",
+      "M12-IT-039",
+      "M12-IT-040",
+      "M12-IT-043",
+      "M12-IT-044",
+      "M12-IT-045",
+      "M12-IT-046",
+      "M12-IT-047",
+      "M12-IT-048",
+      "M12-IT-057",
+      "M12-IT-058"
+    ],
+    "calls": 114,
+    "cost_usd": 0.1913,
+    "note": "first-half items run again after checker fixes (targeted re-runs, see run_metadata.json reruns); not part of the one-pass cost above"
+  },
+  "single_agent_rerun": [
+    {
+      "tag": "s1",
+      "texts": 94,
+      "calls": 94,
+      "cost_usd": 0.2146,
+      "reason": "27 Oct day: the variants whose facts changed since 26 Oct (the night's event metrics and player tags, the regime-switch scope, and now who is on the pitch); 94 of 98 prompts were not in the cache, so the single agent was in effect run again with the same facts the five agents now get"
+    }
+  ],
+  "limits": [
+    "the same deterministic checks score all arms, and the five-agent pipeline uses them internally",
+    "one half of one match (one run per arm); LLM output varies between runs",
+    "each arm is scored against the facts it was given",
+    "the checks see only what they have a rule for (numbers, names, claim rules, goal direction, clock, venue, language, who is on the pitch, wording); the rest was read by hand"
+  ]
+}
